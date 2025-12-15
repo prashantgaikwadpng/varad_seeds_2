@@ -106,41 +106,6 @@
     display:block;
 }
 
-.chilli-detail-right{
-    background: rgba(255,255,255,0.95);
-    border: 1px solid #eee;
-    border-radius: 18px;
-    overflow:hidden;
-}
-
-.chilli-band{
-    background: rgba(27, 94, 32, 0.85);
-    color: #fff;
-    padding: 14px 16px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    font-size: 1.2rem;
-}
-
-.chilli-table{
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.chilli-table th,
-.chilli-table td{
-    padding: 12px 14px;
-    border-bottom: 1px solid #eee;
-    text-align: left;
-    vertical-align: top;
-    font-size: 0.95rem;
-}
-
-.chilli-table th{
-    width: 45%;
-    color: var(--text-dark);
-    background: #fafafa;
-}
 
 .chilli-actions{
     display:flex;
@@ -3402,46 +3367,16 @@ const chilliVarieties = [
     name: "F1- SURYA",
     category: "Chilli",
     image: "assets/images/chilli/surya.png", // <-- add your image later (or keep fallback)
-    details: {
-      "Days To First Picking": "55 to 60 days (Green)",
-      "Plant Habit": "Spreading",
-      "Fruit Color": "Dark Green",
-      "Fruit Length": "8 - 10 cm",
-      "Fruit Diameter": "1.1 cm",
-      "Pungency": "Medium",
-      "Disease": "LCV Tolerance",
-      "Remark": "Green fresh Market & Excellent Long Transportability"
-    }
   },
   {
     name: "F1-DIVYA",
     category: "Chilli",
     image: "assets/images/chilli/DIVYA.png",
-    details: {
-      "Days To First Picking": "—",
-      "Plant Habit": "—",
-      "Fruit Color": "—",
-      "Fruit Length": "—",
-      "Fruit Diameter": "—",
-      "Pungency": "—",
-      "Disease": "—",
-      "Remark": "—"
-    }
   },
   {
     name: "F1- ICON",
     category: "Chilli",
-    image: "assets/images/chilli/icon.png",
-    details: {
-      "Days To First Picking": "—",
-      "Plant Habit": "—",
-      "Fruit Color": "—",
-      "Fruit Length": "—",
-      "Fruit Diameter": "—",
-      "Pungency": "—",
-      "Disease": "—",
-      "Remark": "—"
-    }
+    image: "assets/images/chilli/RANTEJA.png",
   }
 ];
 
@@ -3491,17 +3426,9 @@ function openChilliCatalog(){
 
   modal.classList.add("active");
 }
-
 function openChilliDetail(idx){
   const v = chilliVarieties[idx];
   const body = modal.querySelector(".modal-body");
-
-  const rows = Object.entries(v.details).map(([k,val]) => `
-    <tr>
-      <th>${k}</th>
-      <td>${val}</td>
-    </tr>
-  `).join("");
 
   body.innerHTML = `
     <div class="chilli-header">
@@ -3511,25 +3438,32 @@ function openChilliDetail(idx){
       <a class="btn btn-primary" href="assets/pdfs/chilli.pdf" download>Download PDF</a>
     </div>
 
-    <div class="chilli-detail">
+    <div class="chilli-detail" style="grid-template-columns:1fr;">
       <div class="chilli-detail-left">
-        <img src="${chilliImg(v.image)}" alt="${v.name}">
+        <img
+          src="${chilliImg(v.image)}"
+          alt="${v.name}"
+          style="
+            width:100%;
+            max-height:75vh;
+            object-fit:contain;
+            background:#fff;
+            cursor:zoom-in;
+          "
+          onclick="window.open('${chilliImg(v.image)}','_blank','noopener')"
+        />
       </div>
 
-      <div class="chilli-detail-right">
-        <div class="chilli-band">${v.name}</div>
-        <table class="chilli-table">
-          ${rows}
-        </table>
-        <div class="chilli-actions">
-          <a class="btn btn-primary" href="#contact">Quick Enquiry</a>
-          <a class="btn btn-secondary" href="#products">Back to Products</a>
-        </div>
+      <div class="chilli-actions" style="justify-content:center;">
+        <a class="btn btn-primary" href="#contact">Quick Enquiry</a>
+        <a class="btn btn-secondary" href="#products">Back to Products</a>
       </div>
     </div>
   `;
 
-  document.getElementById("backToChilliList").addEventListener("click", openChilliCatalog);
+  document.getElementById("backToChilliList")
+    .addEventListener("click", openChilliCatalog);
+
   modal.classList.add("active");
 }
 
@@ -3679,4 +3613,3 @@ document.querySelectorAll('.product-card[data-product="chilli"] .product-image i
     </script>
 </body>
 </html>
-
