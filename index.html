@@ -2145,6 +2145,12 @@
                                 <li><a href="#"><i class="fas fa-users"></i> Our Team</a></li>
                                 <li><a href="#"><i class="fas fa-certificate"></i> Certifications</a></li>
                                 <li><a href="#"><i class="fas fa-history"></i> Our History</a></li>
+                            <li>
+    <a href="assets/pdfs/varad_agro.pdf" target="_blank">
+        <i class="fas fa-download"></i> Download Brochure
+    </a>
+</li>
+
                             </ul>
                         </li>
                         <li>
@@ -2200,16 +2206,11 @@
                             <ul class="dropdown">
                                 <li><a href="#"><i class="fas fa-book"></i> Farmer's Guide</a></li>
                                 <li><a href="#"><i class="fas fa-video"></i> Video Tutorials</a></li>
-                                
-                                <li><a href="assets/pdfs/varad_agro.pdf"><i class="fas fa-file-pdf"></i> Product Catalog</a></li>
-
+                                <li><a href="#"><i class="fas fa-file-pdf"></i> Product Catalog</a></li>
                                 <li><a href="#"><i class="fas fa-question-circle"></i> FAQs</a></li>
                             </ul>
                         </li>
                         <li><a href="#contact">Contact</a></li>
-                        <li><a href="assets/pdfs/varad_agro.pdf">Brochure</a></li>
-                        <li><a href="upload/Varad%20Seeds%20Brochure.pdf" id="brochureLink">Brochure</a></li>
-
                     </ul>
                 </nav>
 
@@ -3298,21 +3299,8 @@
                 }
             });
         });
-        // ==================== BROCHURE (OPEN PDF IN SAME WINDOW) ====================
-const brochureLink = document.getElementById('brochureLink');
-if (brochureLink) {
-    brochureLink.addEventListener('click', function () {
-        // close mobile menu if open
-        navMenu.classList.remove('active');
-        mobileToggle.classList.remove('active');
-
-        // open in SAME window
-        window.location.href = this.getAttribute('href');
-    });
-}
-
 
         console.log('🌱 Varad Seeds Website Loaded Successfully!');
     </script>
 </body>
-</html>
+                                </html>
