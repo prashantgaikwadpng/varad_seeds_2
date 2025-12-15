@@ -2200,13 +2200,14 @@
                             <ul class="dropdown">
                                 <li><a href="#"><i class="fas fa-book"></i> Farmer's Guide</a></li>
                                 <li><a href="#"><i class="fas fa-video"></i> Video Tutorials</a></li>
-                                <li><a href="#"><i class="fas fa-file-pdf"></i> Product Catalog</a></li>
+                                
+                                <li><a href="assets/pdfs/varad_agro.pdf"><i class="fas fa-file-pdf"></i> Product Catalog</a></li>
+
                                 <li><a href="#"><i class="fas fa-question-circle"></i> FAQs</a></li>
                             </ul>
                         </li>
                         <li><a href="#contact">Contact</a></li>
-                 <li><a href="assets/pdfs/varad_agro.pdf" id="brochureLink" target="_blank" rel="noopener">Brochure</a></li>
-
+                        <li><a href="upload/Varad%20Seeds%20Brochure.pdf" id="brochureLink">Brochure</a></li>
 
                     </ul>
                 </nav>
@@ -3296,95 +3297,21 @@
                 }
             });
         });
-        // ==================== BROCHURE (PDF) OPEN IN NEW WINDOW ====================
-(function () {
-    const brochureLink = document.getElementById('brochureLink');
-    if (!brochureLink) return;
+        // ==================== BROCHURE (OPEN PDF IN SAME WINDOW) ====================
+const brochureLink = document.getElementById('brochureLink');
+if (brochureLink) {
+    brochureLink.addEventListener('click', function () {
+        // close mobile menu if open
+        navMenu.classList.remove('active');
+        mobileToggle.classList.remove('active');
 
-    brochureLink.addEventListener('click', function (e) {
-        e.preventDefault();
-
-        const pdfUrl = this.getAttribute('href'); // assets/pdfs/varad_agro.pdf
-        const w = window.open('', '_blank'); // open new window/tab
-
-        // Popup blocked?
-        if (!w) {
-            // fallback: open direct PDF
-            window.open(pdfUrl, '_blank');
-            return;
-        }
-
-        // Security: prevent access to opener
-        try { w.opener = null; } catch (err) {}
-
-        const doc = w.document;
-        doc.open();
-        doc.write(`
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Varad Seeds -Brochure </title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <style>
-    :root { --dark:#1b5e20; --mid:#2e7d32; --bg:#f5f5f5; --white:#fff; }
-    *{ box-sizing:border-box; }
-    body{ margin:0; font-family:'Poppins',sans-serif; background:var(--bg); color:#222; }
-    .top{
-      position:sticky; top:0;
-      background:linear-gradient(135deg, var(--dark), var(--mid));
-      color:var(--white);
-      padding:12px 16px;
-      display:flex; align-items:center; justify-content:space-between; gap:12px;
-    }
-    .title{ font-weight:700; font-size:16px; }
-    .note{ font-size:13px; opacity:.92; }
-    .actions a{
-      display:inline-block;
-      color:var(--white);
-      text-decoration:none;
-      font-weight:600;
-      border:1px solid rgba(255,255,255,.35);
-      padding:8px 12px;
-      border-radius:10px;
-      white-space:nowrap;
-    }
-    .wrap{ height:calc(100vh - 62px); }
-    iframe{ width:100%; height:100%; border:0; background:var(--white); }
-
-    @media (max-width: 768px){
-      .top{ flex-direction:column; align-items:flex-start; }
-      .wrap{ height:calc(100vh - 98px); }
-      .note::after{ content:" (Laptop recommended)"; font-weight:700; }
-    }
-  </style>
-</head>
-<body>
-  <div class="top">
-    <div>
-      <div class="title">Varad Seeds –Brochure</div>
-      <div class="note">Best viewed on laptop/desktop for clear reading.</div>
-    </div>
-    <div class="actions">
-      <a href="${pdfUrl}" target="_blank" rel="noopener">Open PDF</a>
-    </div>
-  </div>
-
-  <div class="wrap">
-    <iframe src="${pdfUrl}#view=FitH"></iframe>
-  </div>
-</body>
-</html>
-        `);
-        doc.close();
+        // open in SAME window
+        window.location.href = this.getAttribute('href');
     });
-})();
+}
 
 
         console.log('🌱 Varad Seeds Website Loaded Successfully!');
     </script>
 </body>
-    </html>
+</html>
