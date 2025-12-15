@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -317,22 +318,6 @@
             color: var(--primary-green);
             background: rgba(46, 125, 50, 0.1);
         }
-        .nav-brochure-btn{
-  background: var(--accent-yellow);
-  color: #111 !important;
-  padding: 10px 18px !important;
-  border-radius: 10px;
-  font-weight: 700 !important;
-  box-shadow: 0 6px 0 rgba(0,0,0,0.15);
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-}
-.nav-brochure-btn:hover{
-  background: var(--accent-orange);
-  transform: translateY(-1px);
-}
-
 
         .nav-menu > li > a i {
             margin-left: 5px;
@@ -2215,21 +2200,13 @@
                             <ul class="dropdown">
                                 <li><a href="#"><i class="fas fa-book"></i> Farmer's Guide</a></li>
                                 <li><a href="#"><i class="fas fa-video"></i> Video Tutorials</a></li>
-                                <li>
-  <a href="assets/pdfs/varad_agro.pdf" target="_blank" rel="noopener">
-    <i class="fas fa-file-pdf"></i> Product Catalog (PDF)
-  </a>
-</li>
-
+                                <li><a href="#"><i class="fas fa-file-pdf"></i> Product Catalog</a></li>
                                 <li><a href="#"><i class="fas fa-question-circle"></i> FAQs</a></li>
                             </ul>
                         </li>
                         <li><a href="#contact">Contact</a></li>
-                        <li>
-  <a href="assets/pdfs/varad_agro.pdf" target="_blank" rel="noopener" class="nav-brochure-btn">
-    ⬇ Get Brochure
-  </a>
-</li>
+                 <li><a href="assets/pdfs/varad_agro.pdf" id="brochureLink" target="_blank" rel="noopener">Download Brochure</a></li>
+
 
                     </ul>
                 </nav>
@@ -3253,20 +3230,19 @@
         });
 
         // ==================== DROPDOWN TOGGLE FOR MOBILE ====================
-    // ==================== DROPDOWN TOGGLE FOR MOBILE ====================
-if (window.innerWidth <= 992) {
-  document.querySelectorAll('.nav-menu > li > a').forEach(link => {
-    const next = link.nextElementSibling;
-    const isDropdown = next && (next.classList.contains('dropdown') || next.classList.contains('mega-menu'));
-    if (isDropdown) {
-      link.addEventListener('click', function(e) {
-        e.preventDefault();
-        next.style.display = (next.style.display === 'block') ? 'none' : 'block';
-      });
-    }
-  });
-}
-
+        if (window.innerWidth <= 992) {
+            document.querySelectorAll('.nav-menu > li > a').forEach(link => {
+                if (link.querySelector('i')) {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const dropdown = this.nextElementSibling;
+                        if (dropdown) {
+                            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+                        }
+                    });
+                }
+            });
+        }
 
         // ==================== LAZY LOADING IMAGES ====================
         if ('IntersectionObserver' in window) {
@@ -3320,6 +3296,93 @@ if (window.innerWidth <= 992) {
                 }
             });
         });
+        // ==================== BROCHURE (PDF) OPEN IN NEW WINDOW ====================
+(function () {
+    const brochureLink = document.getElementById('brochureLink');
+    if (!brochureLink) return;
+
+    brochureLink.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const pdfUrl = this.getAttribute('href'); // assets/pdfs/varad_agro.pdf
+        const w = window.open('', '_blank'); // open new window/tab
+
+        // Popup blocked?
+        if (!w) {
+            // fallback: open direct PDF
+            window.open(pdfUrl, '_blank');
+            return;
+        }
+
+        // Security: prevent access to opener
+        try { w.opener = null; } catch (err) {}
+
+        const doc = w.document;
+        doc.open();
+        doc.write(`
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Varad Seeds - Download Brochure </title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root { --dark:#1b5e20; --mid:#2e7d32; --bg:#f5f5f5; --white:#fff; }
+    *{ box-sizing:border-box; }
+    body{ margin:0; font-family:'Poppins',sans-serif; background:var(--bg); color:#222; }
+    .top{
+      position:sticky; top:0;
+      background:linear-gradient(135deg, var(--dark), var(--mid));
+      color:var(--white);
+      padding:12px 16px;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .title{ font-weight:700; font-size:16px; }
+    .note{ font-size:13px; opacity:.92; }
+    .actions a{
+      display:inline-block;
+      color:var(--white);
+      text-decoration:none;
+      font-weight:600;
+      border:1px solid rgba(255,255,255,.35);
+      padding:8px 12px;
+      border-radius:10px;
+      white-space:nowrap;
+    }
+    .wrap{ height:calc(100vh - 62px); }
+    iframe{ width:100%; height:100%; border:0; background:var(--white); }
+
+    @media (max-width: 768px){
+      .top{ flex-direction:column; align-items:flex-start; }
+      .wrap{ height:calc(100vh - 98px); }
+      .note::after{ content:" (Laptop recommended)"; font-weight:700; }
+    }
+  </style>
+</head>
+<body>
+  <div class="top">
+    <div>
+      <div class="title">Varad Seeds – Download Brochure</div>
+      <div class="note">Best viewed on laptop/desktop for clear reading.</div>
+    </div>
+    <div class="actions">
+      <a href="${pdfUrl}" target="_blank" rel="noopener">Open PDF</a>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <iframe src="${pdfUrl}#view=FitH"></iframe>
+  </div>
+</body>
+</html>
+        `);
+        doc.close();
+    });
+})();
+
 
         console.log('🌱 Varad Seeds Website Loaded Successfully!');
     </script>
