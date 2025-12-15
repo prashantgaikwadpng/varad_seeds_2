@@ -317,6 +317,22 @@
             color: var(--primary-green);
             background: rgba(46, 125, 50, 0.1);
         }
+        .nav-brochure-btn{
+  background: var(--accent-yellow);
+  color: #111 !important;
+  padding: 10px 18px !important;
+  border-radius: 10px;
+  font-weight: 700 !important;
+  box-shadow: 0 6px 0 rgba(0,0,0,0.15);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.nav-brochure-btn:hover{
+  background: var(--accent-orange);
+  transform: translateY(-1px);
+}
+
 
         .nav-menu > li > a i {
             margin-left: 5px;
@@ -2199,12 +2215,22 @@
                             <ul class="dropdown">
                                 <li><a href="#"><i class="fas fa-book"></i> Farmer's Guide</a></li>
                                 <li><a href="#"><i class="fas fa-video"></i> Video Tutorials</a></li>
-                                <li><a href="#"><i class="fas fa-file-pdf"></i> Product Catalog</a></li>
+                                <li>
+  <a href="assets/pdfs/varad_agro.pdf" target="_blank" rel="noopener">
+    <i class="fas fa-file-pdf"></i> Product Catalog (PDF)
+  </a>
+</li>
+
                                 <li><a href="#"><i class="fas fa-question-circle"></i> FAQs</a></li>
                             </ul>
                         </li>
-                        <li><a href="#blog">Blog</a></li>
                         <li><a href="#contact">Contact</a></li>
+                        <li>
+  <a href="assets/pdfs/varad_agro.pdf" target="_blank" rel="noopener" class="nav-brochure-btn">
+    ⬇ Get Brochure
+  </a>
+</li>
+
                     </ul>
                 </nav>
 
@@ -2714,88 +2740,6 @@
         </div>
     </section>
 
-    <!-- Blog Section -->
-    <section class="blog" id="blog">
-        <div class="container">
-            <div class="section-title">
-                <h2>Latest News & Articles</h2>
-                <p>Stay updated with the latest in agriculture, farming tips, and company news</p>
-            </div>
-            <div class="blog-grid">
-                <div class="blog-card">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=500" alt="Blog">
-                        <div class="blog-date">
-                            <span>28</span>
-                            <small>Nov</small>
-                        </div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span><i class="fas fa-user"></i> Admin</span>
-                            <span><i class="fas fa-comments"></i> 12 Comments</span>
-                        </div>
-                        <h3>5 Tips for Better Cotton Yield This Season</h3>
-                        <p>Learn the expert techniques to maximize your cotton production with proper seed selection and care.</p>
-                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="blog-card">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=500" alt="Blog">
-                        <div class="blog-date">
-                            <span>25</span>
-                            <small>Nov</small>
-                        </div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span><i class="fas fa-user"></i> Admin</span>
-                            <span><i class="fas fa-comments"></i> 8 Comments</span>
-                        </div>
-                        <h3>Understanding Soil Health for Organic Farming</h3>
-                        <p>A comprehensive guide to maintaining soil fertility and choosing the right seeds for organic cultivation.</p>
-                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="blog-card">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ce?w=500" alt="Blog">
-                        <div class="blog-date">
-                            <span>20</span>
-                            <small>Nov</small>
-                        </div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span><i class="fas fa-user"></i> Admin</span>
-                            <span><i class="fas fa-comments"></i> 15 Comments</span>
-                        </div>
-                        <h3>New Varad Hybrid Varieties Launch 2024</h3>
-                        <p>Exciting announcement of our latest hybrid seed varieties developed for higher productivity.</p>
-                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Newsletter Section -->
-    <section class="newsletter">
-        <div class="container">
-            <div class="newsletter-content">
-                <div class="newsletter-text">
-                    <h2>Subscribe to Our Newsletter</h2>
-                    <p>Get the latest updates on new seed varieties, farming tips, and exclusive offers directly in your inbox.</p>
-                </div>
-                <form class="newsletter-form" id="newsletterForm">
-                    <input type="email" placeholder="Enter your email address" required>
-                    <button type="submit">Subscribe Now</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
@@ -3205,20 +3149,12 @@
 
         // ==================== FORM SUBMISSIONS ====================
         const contactForm = document.getElementById('contactForm');
-        const newsletterForm = document.getElementById('newsletterForm');
+      
 
         if (contactForm) {
             contactForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 alert('Thank you for your message! We will get back to you soon.');
-                this.reset();
-            });
-        }
-
-        if (newsletterForm) {
-            newsletterForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('Thank you for subscribing to our newsletter!');
                 this.reset();
             });
         }
@@ -3276,7 +3212,8 @@
         }, observerOptions);
 
         // Observe all cards and sections
-        document.querySelectorAll('.feature-card, .product-card, .why-card, .blog-card, .gallery-item').forEach(el => {
+        document.querySelectorAll(
+        '.feature-card, .product-card, .why-card, .gallery-item').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -3316,19 +3253,20 @@
         });
 
         // ==================== DROPDOWN TOGGLE FOR MOBILE ====================
-        if (window.innerWidth <= 992) {
-            document.querySelectorAll('.nav-menu > li > a').forEach(link => {
-                if (link.querySelector('i')) {
-                    link.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        const dropdown = this.nextElementSibling;
-                        if (dropdown) {
-                            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-                        }
-                    });
-                }
-            });
-        }
+    // ==================== DROPDOWN TOGGLE FOR MOBILE ====================
+if (window.innerWidth <= 992) {
+  document.querySelectorAll('.nav-menu > li > a').forEach(link => {
+    const next = link.nextElementSibling;
+    const isDropdown = next && (next.classList.contains('dropdown') || next.classList.contains('mega-menu'));
+    if (isDropdown) {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        next.style.display = (next.style.display === 'block') ? 'none' : 'block';
+      });
+    }
+  });
+}
+
 
         // ==================== LAZY LOADING IMAGES ====================
         if ('IntersectionObserver' in window) {
