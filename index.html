@@ -9,6 +9,165 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* ==================== CSS RESET & VARIABLES ==================== */
+        /* ===== Chilli Catalog Modal Layout ===== */
+.modal-content.modal-wide{
+    max-width: 1100px;
+    width: 95%;
+}
+
+.chilli-modal{
+    padding: 30px;
+}
+
+.chilli-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap: 15px;
+    margin-bottom: 18px;
+}
+
+.chilli-title{
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--primary-green);
+}
+
+.chilli-sub{
+    color: var(--text-light);
+    margin-top: 4px;
+    font-size: 0.95rem;
+}
+
+.chilli-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 18px;
+}
+
+.chilli-card{
+    background: var(--bg-cream);
+    border: 1px solid #eee;
+    border-radius: 16px;
+    overflow:hidden;
+    box-shadow: var(--shadow);
+    cursor:pointer;
+    transition: var(--transition);
+}
+
+.chilli-card:hover{
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+}
+
+.chilli-card img{
+    width:100%;
+    height:170px;
+    object-fit:cover;
+    display:block;
+}
+
+.chilli-card .cc-body{
+    padding: 14px 16px;
+}
+
+.chilli-card .cc-body h4{
+    margin: 0 0 6px;
+    color: var(--text-dark);
+}
+
+.chilli-card .cc-body p{
+    margin: 0;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.chilli-detail{
+    display:grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 18px;
+    margin-top: 10px;
+    align-items: start;
+}
+
+.chilli-detail-left{
+    background: var(--bg-light);
+    border: 1px solid #eee;
+    border-radius: 18px;
+    overflow:hidden;
+}
+
+.chilli-detail-left img{
+    width:100%;
+    height: 420px;
+    object-fit: contain;
+    background: #fff;
+    display:block;
+}
+
+.chilli-detail-right{
+    background: rgba(255,255,255,0.95);
+    border: 1px solid #eee;
+    border-radius: 18px;
+    overflow:hidden;
+}
+
+.chilli-band{
+    background: rgba(27, 94, 32, 0.85);
+    color: #fff;
+    padding: 14px 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 1.2rem;
+}
+
+.chilli-table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.chilli-table th,
+.chilli-table td{
+    padding: 12px 14px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+    vertical-align: top;
+    font-size: 0.95rem;
+}
+
+.chilli-table th{
+    width: 45%;
+    color: var(--text-dark);
+    background: #fafafa;
+}
+
+.chilli-actions{
+    display:flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 14px 16px;
+}
+
+/* modal entry motion */
+.modal.active .modal-content{
+    animation: chilliPop 220ms ease-out;
+}
+@keyframes chilliPop{
+    from{ transform: scale(0.94) translateY(10px); opacity: 0.2; }
+    to{ transform: scale(1) translateY(0); opacity: 1; }
+}
+
+/* responsive */
+@media (max-width: 992px){
+    .chilli-grid{ grid-template-columns: repeat(2, 1fr); }
+    .chilli-detail{ grid-template-columns: 1fr; }
+    .chilli-detail-left img{ height: 320px; }
+}
+@media (max-width: 520px){
+    .chilli-grid{ grid-template-columns: 1fr; }
+}
+
         :root {
             --primary-green: #2e7d32;
             --secondary-green: #4caf50;
@@ -2519,30 +2678,24 @@
                     </div>
                 </div>
 
-                <div class="product-card" data-category="vegetable">
-                    <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1583119022894-919a68a3d0e3?w=400" alt="Chilli Seeds">
-                        <div class="product-overlay">
-                            <a href="#" title="Quick View"><i class="fas fa-eye"></i></a>
-                            <a href="#" title="Add to Cart"><i class="fas fa-shopping-cart"></i></a>
-                            <a href="#" title="Wishlist"><i class="fas fa-heart"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Varad Chilli - Tej</h3>
-                        <p class="variety">High Pungency Variety</p>
-                        <div class="product-meta">
-                            <span class="product-price">₹420/Packet</span>
-                            <div class="product-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div class="product-card" data-category="vegetable" data-product="chilli">
+    <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1583119022894-919a68a3d0e3?w=400" alt="Chilli Seeds">
+        <div class="product-overlay">
+            <a href="#" class="open-chilli" title="View Varieties"><i class="fas fa-seedling"></i></a>
+            <a href="#" title="Wishlist"><i class="fas fa-heart"></i></a>
+        </div>
+    </div>
+    <div class="product-info">
+        <h3>Chilli Seeds</h3>
+        <p class="variety">Click to view all chilli varieties</p>
+
+        <!-- price removed -->
+        <div class="product-meta" style="justify-content:flex-end;">
+            <span style="font-weight:600; color: var(--primary-green);">View Details →</span>
+        </div>
+    </div>
+</div>
 
                 <div class="product-card" data-category="field">
                     <div class="product-image">
@@ -2971,8 +3124,8 @@
     </button>
 
     <!-- Product Modal -->
-    <div class="modal" id="productModal">
-        <div class="modal-content">
+  <div class="modal" id="productModal">
+    <div class="modal-content modal-wide">
             <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
             <div class="modal-body">
                 <h2>Product Quick View</h2>
@@ -3243,6 +3396,160 @@
                 modal.classList.remove('active');
             }
         });
+// ==================== CHILLI CATALOG (Modal) ====================
+const chilliVarieties = [
+  {
+    name: "F1- SURYA",
+    category: "Chilli",
+    image: "assets/images/chilli/surya.png", // <-- add your image later (or keep fallback)
+    details: {
+      "Days To First Picking": "55 to 60 days (Green)",
+      "Plant Habit": "Spreading",
+      "Fruit Color": "Dark Green",
+      "Fruit Length": "8 - 10 cm",
+      "Fruit Diameter": "1.1 cm",
+      "Pungency": "Medium",
+      "Disease": "LCV Tolerance",
+      "Remark": "Green fresh Market & Excellent Long Transportability"
+    }
+  },
+  {
+    name: "F1- SINDOOR",
+    category: "Chilli",
+    image: "assets/images/chilli/sindoor.png",
+    details: {
+      "Days To First Picking": "—",
+      "Plant Habit": "—",
+      "Fruit Color": "—",
+      "Fruit Length": "—",
+      "Fruit Diameter": "—",
+      "Pungency": "—",
+      "Disease": "—",
+      "Remark": "—"
+    }
+  },
+  {
+    name: "F1- ICON",
+    category: "Chilli",
+    image: "assets/images/chilli/icon.png",
+    details: {
+      "Days To First Picking": "—",
+      "Plant Habit": "—",
+      "Fruit Color": "—",
+      "Fruit Length": "—",
+      "Fruit Diameter": "—",
+      "Pungency": "—",
+      "Disease": "—",
+      "Remark": "—"
+    }
+  }
+];
+
+// Fallback image if local variety image not present yet
+function chilliImg(src){
+  return src && src.startsWith("assets/") ? src : "https://images.unsplash.com/photo-1583119022894-919a68a3d0e3?w=900";
+}
+
+function openChilliCatalog(){
+  const body = modal.querySelector(".modal-body");
+  body.classList.add("chilli-modal");
+
+  body.innerHTML = `
+    <div class="chilli-header">
+      <div>
+        <div class="chilli-title">Chilli</div>
+        <div class="chilli-sub">Select a variety to view details and open the Package of Practices PDF.</div>
+      </div>
+      <button class="btn btn-primary" id="openChilliPdfTop">Open PDF</button>
+    </div>
+
+    <div class="chilli-grid">
+      ${chilliVarieties.map((v, idx) => `
+        <div class="chilli-card" data-idx="${idx}">
+          <img src="${chilliImg(v.image)}" alt="${v.name}">
+          <div class="cc-body">
+            <h4>${v.name}</h4>
+            <p>Click to view details</p>
+          </div>
+        </div>
+      `).join("")}
+    </div>
+  `;
+
+  // PDF button (top)
+  document.getElementById("openChilliPdfTop").addEventListener("click", () => {
+    window.open("assets/pdfs/chilli.pdf", "_blank", "noopener");
+  });
+
+  // Click any variety
+  body.querySelectorAll(".chilli-card").forEach(card => {
+    card.addEventListener("click", () => {
+      const idx = Number(card.getAttribute("data-idx"));
+      openChilliDetail(idx);
+    });
+  });
+
+  modal.classList.add("active");
+}
+
+function openChilliDetail(idx){
+  const v = chilliVarieties[idx];
+  const body = modal.querySelector(".modal-body");
+
+  const rows = Object.entries(v.details).map(([k,val]) => `
+    <tr>
+      <th>${k}</th>
+      <td>${val}</td>
+    </tr>
+  `).join("");
+
+  body.innerHTML = `
+    <div class="chilli-header">
+      <button class="btn btn-primary" id="backToChilliList">← Back</button>
+      <div style="flex:1;"></div>
+      <a class="btn btn-primary" href="assets/pdfs/chilli.pdf" target="_blank" rel="noopener">Open PDF</a>
+      <a class="btn btn-primary" href="assets/pdfs/chilli.pdf" download>Download PDF</a>
+    </div>
+
+    <div class="chilli-detail">
+      <div class="chilli-detail-left">
+        <img src="${chilliImg(v.image)}" alt="${v.name}">
+      </div>
+
+      <div class="chilli-detail-right">
+        <div class="chilli-band">${v.name}</div>
+        <table class="chilli-table">
+          ${rows}
+        </table>
+        <div class="chilli-actions">
+          <a class="btn btn-primary" href="#contact">Quick Enquiry</a>
+          <a class="btn btn-secondary" href="#products">Back to Products</a>
+        </div>
+      </div>
+    </div>
+  `;
+
+  document.getElementById("backToChilliList").addEventListener("click", openChilliCatalog);
+  modal.classList.add("active");
+}
+
+// Hook chilli overlay click
+document.querySelectorAll(".open-chilli").forEach(btn => {
+  btn.addEventListener("click", function(e){
+    e.preventDefault();
+    openChilliCatalog();
+  });
+});
+
+// Also open catalog when clicking the chilli product image/card (optional nice UX)
+document.querySelectorAll('.product-card[data-product="chilli"] .product-image img, .product-card[data-product="chilli"] .product-info')
+  .forEach(el => {
+    el.style.cursor = "pointer";
+    el.addEventListener("click", (e) => {
+      e.preventDefault();
+      openChilliCatalog();
+    });
+  });
 
         // ==================== INTERSECTION OBSERVER FOR ANIMATIONS ====================
         const observerOptions = {
@@ -3372,4 +3679,3 @@
     </script>
 </body>
 </html>
-
