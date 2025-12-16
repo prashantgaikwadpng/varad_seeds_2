@@ -2540,31 +2540,6 @@
                 <button class="category-btn" data-category="pulse">Pulses</button>
             </div>
             <div class="products-grid">
-                <div class="product-card" data-category="field">
-                    <span class="product-badge new">New</span>
-                    <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1596404643764-2da1113cfc0d?w=400" alt="Cotton Seeds">
-                        <div class="product-overlay">
-                            <a href="#" title="Quick View"><i class="fas fa-eye"></i></a>
-                            <a href="#" title="Add to Cart"><i class="fas fa-shopping-cart"></i></a>
-                            <a href="#" title="Wishlist"><i class="fas fa-heart"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Varad BT Cotton - 786</h3>
-                        <p class="variety">High Yield Hybrid Variety</p>
-                        <div class="product-meta">
-                            <span class="product-price">₹950/Packet</span>
-                            <div class="product-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 <div class="product-card" data-category="vegetable">
                     <span class="product-badge">Best Seller</span>
@@ -2661,6 +2636,25 @@
         </div>
     </div>
 </div>
+<div class="product-card" data-category="vegetable" data-product="onion">
+    <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?w=400" alt="Onion Seeds">
+        <div class="product-overlay">
+            <a href="#" class="open-onion" title="View Varieties">
+                <i class="fas fa-seedling"></i>
+            </a>
+            <a href="#" title="Wishlist"><i class="fas fa-heart"></i></a>
+        </div>
+    </div>
+    <div class="product-info">
+        <h3>Onion Seeds</h3>
+        <p class="variety">Click to view all onion varieties</p>
+        <div class="product-meta" style="justify-content:flex-end;">
+            <span style="font-weight:600; color: var(--primary-green);">View Details →</span>
+        </div>
+    </div>
+</div>
+
 
                 <div class="product-card" data-category="field">
                     <div class="product-image">
@@ -3454,6 +3448,10 @@ const chilliVarieties = [
     image: "assets/images/chilli/VARAD 9576.png",
   }
 ];
+// ==================== ONION CATALOG (Modal) ====================
+const onionVarieties = [
+  { name: "F1- SHAKTI", image: "assets/images/onion/SHAKTI.png" }
+];
 
 // Fallback image if local variety image not present yet
 function chilliImg(src){
@@ -3542,12 +3540,91 @@ function openChilliDetail(idx){
   modal.classList.add("active");
 }
 
+
+function openOnionCatalog(){
+  const body = modal.querySelector(".modal-body");
+  body.classList.add("chilli-modal");
+
+  body.innerHTML = `
+    <div class="chilli-header">
+      <div>
+        <div class="chilli-title">Onion</div>
+        <div class="chilli-sub">Select onion variety</div>
+      </div>
+      <button class="btn btn-primary" id="openOnionPdf">Package Of Practices</button>
+    </div>
+
+    <div class="chilli-grid">
+      ${onionVarieties.map((v, idx) => `
+        <div class="chilli-card" data-idx="${idx}">
+          <img src="${chilliImg(v.image)}">
+          <div class="cc-body">
+            <h4>${v.name}</h4>
+            <p>Click to view details</p>
+          </div>
+        </div>
+      `).join("")}
+    </div>
+  `;
+
+  document.getElementById("openOnionPdf").onclick = () =>
+    window.open("assets/pdfs/onion.pdf","_blank","noopener");
+
+  body.querySelectorAll(".chilli-card").forEach(card=>{
+    card.onclick=()=>{
+      const idx=card.getAttribute("data-idx");
+      openOnionDetail(idx);
+    }
+  });
+
+  modal.classList.add("active");
+}
+
+function openOnionDetail(idx){
+  const v = onionVarieties[idx];
+  const body = modal.querySelector(".modal-body");
+
+  body.innerHTML = `
+    <div class="chilli-header">
+      <button class="btn btn-primary" id="backToOnionList">← Back</button>
+      <div style="flex:1"></div>
+      <a class="btn btn-primary" href="assets/pdfs/onion.pdf" target="_blank">Package Of Practices</a>
+      <a class="btn btn-primary" href="assets/pdfs/onion.pdf" download>Download PDF</a>
+    </div>
+
+    <div class="chilli-detail" style="grid-template-columns:1fr;">
+      <div class="chilli-detail-left">
+        <img src="${chilliImg(v.image)}"
+             style="width:100%;max-height:75vh;object-fit:contain;background:#fff;">
+      </div>
+    </div>
+  `;
+
+  document.getElementById("backToOnionList").onclick=openOnionCatalog;
+}
+
 // Hook chilli overlay click
 document.querySelectorAll(".open-chilli").forEach(btn => {
   btn.addEventListener("click", function(e){
     e.preventDefault();
     openChilliCatalog();
   });
+});
+
+document.querySelectorAll(".open-onion").forEach(btn=>{
+  btn.addEventListener("click",e=>{
+    e.preventDefault();
+    openOnionCatalog();
+  });
+});
+
+document.querySelectorAll('.product-card[data-product="onion"] .product-image img, .product-card[data-product="onion"] .product-info')
+.forEach(el=>{
+  el.style.cursor="pointer";
+  el.onclick=e=>{
+    e.preventDefault();
+    openOnionCatalog();
+  };
 });
 
 // Also open catalog when clicking the chilli product image/card (optional nice UX)
@@ -3687,4 +3764,4 @@ document.querySelectorAll('.product-card[data-product="chilli"] .product-image i
         console.log('🌱 Varad Seeds Website Loaded Successfully!');
     </script>
 </body>
-                </html>
+    </html>
