@@ -2664,32 +2664,27 @@
     </div>
 </div>
 
+<div class="product-card" data-category="vegetable" data-product="ridgegourd">
+    <div class="product-image">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/Luffa_ridge_%28Luffa_acutangula%29_immature_gourd_ready_for_consumption.jpg" alt="Ridge Gourd Seeds">
+        <div class="product-overlay">
+            <a href="#" class="open-ridgegourd" title="View Varieties">
+                <i class="fas fa-seedling"></i>
+            </a>
+            <a href="#" title="Wishlist"><i class="fas fa-heart"></i></a>
+        </div>
+    </div>
+    <div class="product-info">
+        <h3>Ridge Gourd Seeds</h3>
+        <p class="variety">Click to view all ridge gourd varieties</p>
+        <div class="product-meta" style="justify-content:flex-end;">
+            <span style="font-weight:600; color: var(--primary-green);">View Details →</span>
+        </div>
+    </div>
+</div>
 
-                <div class="product-card" data-category="field">
-                    <span class="product-badge">Popular</span>
-                    <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?w=400" alt="Soybean Seeds">
-                        <div class="product-overlay">
-                            <a href="#" title="Quick View"><i class="fas fa-eye"></i></a>
-                            <a href="#" title="Add to Cart"><i class="fas fa-shopping-cart"></i></a>
-                            <a href="#" title="Wishlist"><i class="fas fa-heart"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Varad Soybean - JS 9305</h3>
-                        <p class="variety">Early Maturing Variety</p>
-                        <div class="product-meta">
-                            <span class="product-price">₹220/Kg</span>
-                            <div class="product-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+             
 
                 <div class="product-card" data-category="oil">
                     <div class="product-image">
@@ -3456,6 +3451,11 @@ const spongeGourdVarieties = [
   { name: "VARAD SPONGE VSPH-2", image: "assets/images/spongegourd/VSPH-2.png" }
 ];
 
+// ==================== RIDGE GOURD CATALOG ====================
+const ridgeGourdVarieties = [
+  { name: "VARAD RIDGE GOURD SUREKH", image: "assets/images/ridgegourd/SUREKH.png" }
+];
+
 
 
 // Fallback image if local variety image not present yet
@@ -3794,6 +3794,67 @@ function openSpongeGourdDetail(idx){
   document.getElementById("backToSpongeGourdList").onclick = openSpongeGourdCatalog;
 }
 
+function openRidgeGourdCatalog(){
+  const body = modal.querySelector(".modal-body");
+  body.classList.add("chilli-modal");
+
+  body.innerHTML = `
+    <div class="chilli-header">
+      <div>
+        <div class="chilli-title">Ridge Gourd</div>
+        <div class="chilli-sub">Select ridge gourd variety</div>
+      </div>
+      <button class="btn btn-primary" id="openRidgeGourdPdf">Package Of Practices</button>
+    </div>
+
+    <div class="chilli-grid">
+      ${ridgeGourdVarieties.map((v, idx) => `
+        <div class="chilli-card" data-idx="${idx}">
+          <img src="${chilliImg(v.image)}">
+          <div class="cc-body">
+            <h4>${v.name}</h4>
+            <p>Click to view details</p>
+          </div>
+        </div>
+      `).join("")}
+    </div>
+  `;
+
+  document.getElementById("openRidgeGourdPdf").onclick = () =>
+    window.open("assets/pdfs/ridgegourd.pdf","_blank","noopener");
+
+  body.querySelectorAll(".chilli-card").forEach(card=>{
+    card.onclick=()=>{
+      openRidgeGourdDetail(card.getAttribute("data-idx"));
+    };
+  });
+
+  modal.classList.add("active");
+}
+
+function openRidgeGourdDetail(idx){
+  const v = ridgeGourdVarieties[idx];
+  const body = modal.querySelector(".modal-body");
+
+  body.innerHTML = `
+    <div class="chilli-header">
+      <button class="btn btn-primary" id="backToRidgeGourdList">← Back</button>
+      <div style="flex:1"></div>
+      <a class="btn btn-primary" href="assets/pdfs/ridgegourd.pdf" target="_blank" rel="noopener">Package Of Practices</a>
+      <a class="btn btn-primary" href="assets/pdfs/ridgegourd.pdf" download>Download PDF</a>
+    </div>
+
+    <div class="chilli-detail" style="grid-template-columns:1fr;">
+      <div class="chilli-detail-left">
+        <img src="${chilliImg(v.image)}"
+             style="width:100%;max-height:75vh;object-fit:contain;background:#fff;">
+      </div>
+    </div>
+  `;
+
+  document.getElementById("backToRidgeGourdList").onclick = openRidgeGourdCatalog;
+}
+
 
 // Hook chilli overlay click
 document.querySelectorAll(".open-chilli").forEach(btn => {
@@ -3869,6 +3930,27 @@ document.querySelectorAll(
     openSpongeGourdCatalog();
   };
 });
+
+document.querySelectorAll(".open-ridgegourd").forEach(btn=>{
+  btn.addEventListener("click",e=>{
+    e.preventDefault();
+    openRidgeGourdCatalog();
+  });
+});
+
+document.querySelectorAll(
+  '.product-card[data-product="ridgegourd"] .product-image img, .product-card[data-product="ridgegourd"] .product-info'
+).forEach(el=>{
+  el.style.cursor="pointer";
+  el.onclick=e=>{
+    e.preventDefault();
+    openRidgeGourdCatalog();
+  };
+});
+
+
+
+
 
 
 // Also open catalog when clicking the chilli product image/card (optional nice UX)
@@ -4008,4 +4090,4 @@ document.querySelectorAll('.product-card[data-product="chilli"] .product-image i
         console.log('🌱 Varad Seeds Website Loaded Successfully!');
     </script>
 </body>
-                    </html>
+    </html>
