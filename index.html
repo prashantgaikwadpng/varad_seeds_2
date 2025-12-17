@@ -2699,6 +2699,88 @@
     </div>
 </div>
 
+<div class="product-card" data-category="vegetable" data-product="karela">
+    <div class="product-image">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Bitter_melons.jpg" alt="Bitter Gourd (Karela) Seeds">
+        <div class="product-overlay">
+            <a href="#" class="open-karela" title="View Varieties">
+                <i class="fas fa-seedling"></i>
+            </a>
+            <a href="#" title="Wishlist"><i class="fas fa-heart"></i></a>
+        </div>
+    </div>
+    <div class="product-info">
+        <h3>Bitter Gourd (Karela) Seeds</h3>
+        <p class="variety">Click to view all karela varieties</p>
+        <div class="product-meta" style="justify-content:flex-end;">
+            <span style="font-weight:600; color: var(--primary-green);">View Details →</span>
+        </div>
+    </div>
+</div>
+<div class="product-card" data-category="vegetable" data-product="pumpkin">
+    <div class="product-image">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/dd/Big_%26_Small_Pumkins.JPG" alt="Pumpkin Seeds">
+        <div class="product-overlay">
+            <a href="#" class="open-pumpkin" title="View Varieties">
+                <i class="fas fa-seedling"></i>
+            </a>
+            <a href="#" title="Wishlist"><i class="fas fa-heart"></i></a>
+        </div>
+    </div>
+    <div class="product-info">
+        <h3>Pumpkin Seeds</h3>
+        <p class="variety">Click to view all pumpkin varieties</p>
+        <div class="product-meta" style="justify-content:flex-end;">
+            <span style="font-weight:600; color: var(--primary-green);">
+                View Details →
+            </span>
+        </div>
+    </div>
+</div>
+<div class="product-card" data-category="vegetable" data-product="cucumber">
+  <div class="product-image">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Cucumber_plants.jpg" alt="Cucumber Seeds">
+    <div class="product-overlay">
+      <a href="#" class="open-cucumber" title="View Varieties">
+        <i class="fas fa-seedling"></i>
+      </a>
+      <a href="#" title="Wishlist"><i class="fas fa-heart"></i></a>
+    </div>
+  </div>
+
+  <div class="product-info">
+    <h3>Cucumber Seeds</h3>
+    <p class="variety">Click to view all cucumber varieties</p>
+    <div class="product-meta" style="justify-content:flex-end;">
+      <span style="font-weight:600; color: var(--primary-green);">View Details →</span>
+    </div>
+  </div>
+</div>
+<div class="product-card" data-category="vegetable" data-product="capsicum">
+    <div class="product-image">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Capsicum_annuum_fruits_IMGP0049.jpg" alt="Capsicum Seeds">
+        <div class="product-overlay">
+            <a href="#" class="open-capsicum" title="View Varieties">
+                <i class="fas fa-seedling"></i>
+            </a>
+            <a href="#" title="Wishlist"><i class="fas fa-heart"></i></a>
+        </div>
+    </div>
+    <div class="product-info">
+        <h3>Capsicum Seeds</h3>
+        <p class="variety">Click to view all capsicum varieties</p>
+        <div class="product-meta" style="justify-content:flex-end;">
+            <span style="font-weight:600; color: var(--primary-green);">
+                View Details →
+            </span>
+        </div>
+    </div>
+</div>
+
+
+
+
+
 
 
 
@@ -3467,6 +3549,34 @@ const bhendiVarieties = [
   { name: "VARAD BHENDI - RESEARCH 1503", image: "assets/images/bhendi/RESEARCH 1503.png" },
 ];
 
+// ==================== BITTER GOURD (KARELA) CATALOG ====================
+const karelaVarieties = [
+  { name: "VARAD KARELA - AMAN-01", image: "assets/images/karela/AMAN-01.png" },
+  { name: "VARAD KARELA - RACHANA", image: "assets/images/karela/RACHAN.png" },
+   { name: "VARAD KARELA - ZALLI-01", image: "assets/images/karela/ZALLI-01.png" }
+];
+
+// ==================== PUMPKIN CATALOG ====================
+const pumpkinVarieties = [
+  { name: "VARAD PUMPKIN - VSPH-2", image: "assets/images/pumpkin/VSPH-2.png" },
+  { name: "VARAD PUMPKIN - VARDHAN", image: "assets/images/pumpkin/VARDHAN.png" },
+  { name: "VARAD PUMPKIN - SHIV", image: "assets/images/pumpkin/SHIV.png" },
+  { name: "VARAD PUMPKIN - SARTHAK-8", image: "assets/images/pumpkin/SARTHAK-8.png" }
+];
+// ==================== CUCUMBER CATALOG ====================
+const cucumberVarieties = [
+  { name: "VARAD CUCUMBER -MANASI", image: "assets/images/cucumber/MANASI.png" }
+  
+];
+
+// ==================== CAPSICUM CATALOG ====================
+const capsicumVarieties = [
+  { name: "VARAD CAPSICUM - ARISTO-11", image: "assets/images/capsicum/ARISTO-11.png" },
+  { name: "VARAD CAPSICUM - VARAD-4316", image: "assets/images/capsicum/VARAD-4316.png" }
+];
+
+
+
 
 
 
@@ -3993,6 +4103,262 @@ function openBhendiDetail(i){
 
   document.getElementById("backBhendi").onclick = openBhendiCatalog;
 }
+function openKarelaCatalog(){
+  const body = modal.querySelector(".modal-body");
+  body.classList.add("chilli-modal");
+
+  body.innerHTML = `
+    <div class="chilli-header">
+      <div>
+        <div class="chilli-title">Bitter Gourd (Karela)</div>
+        <div class="chilli-sub">Select karela variety</div>
+      </div>
+      <button class="btn btn-primary" id="openKarelaPdf">
+        Package Of Practices
+      </button>
+    </div>
+
+    <div class="chilli-grid">
+      ${karelaVarieties.map((v, i) => `
+        <div class="chilli-card" data-i="${i}">
+          <img src="${chilliImg(v.image)}" alt="${v.name}">
+          <div class="cc-body">
+            <h4>${v.name}</h4>
+            <p>Click to view details</p>
+          </div>
+        </div>
+      `).join("")}
+    </div>
+  `;
+
+  document.getElementById("openKarelaPdf").onclick = () =>
+    window.open("assets/pdfs/karela.pdf","_blank","noopener");
+
+  body.querySelectorAll(".chilli-card").forEach(card=>{
+    card.onclick = () => openKarelaDetail(card.getAttribute("data-i"));
+  });
+
+  modal.classList.add("active");
+}
+
+function openKarelaDetail(i){
+  const v = karelaVarieties[i];
+  const body = modal.querySelector(".modal-body");
+
+  body.innerHTML = `
+    <div class="chilli-header">
+      <button class="btn btn-primary" id="backKarela">← Back</button>
+      <div style="flex:1"></div>
+      <a class="btn btn-primary" href="assets/pdfs/karela.pdf" target="_blank" rel="noopener">Open PDF</a>
+      <a class="btn btn-primary" href="assets/pdfs/karela.pdf" download>Download PDF</a>
+    </div>
+
+    <div class="chilli-detail" style="grid-template-columns:1fr;">
+      <div class="chilli-detail-left">
+        <img src="${chilliImg(v.image)}" alt="${v.name}"
+             style="width:100%;max-height:75vh;object-fit:contain;background:#fff;">
+      </div>
+    </div>
+  `;
+
+  document.getElementById("backKarela").onclick = openKarelaCatalog;
+}
+
+function openPumpkinCatalog(){
+  const body = modal.querySelector(".modal-body");
+  body.classList.add("chilli-modal");
+
+  body.innerHTML = `
+    <div class="chilli-header">
+      <div>
+        <div class="chilli-title">Pumpkin</div>
+        <div class="chilli-sub">Select pumpkin variety</div>
+      </div>
+      <button class="btn btn-primary" id="openPumpkinPdf">
+        Package Of Practices
+      </button>
+    </div>
+
+    <div class="chilli-grid">
+      ${pumpkinVarieties.map((v, i) => `
+        <div class="chilli-card" data-i="${i}">
+          <img src="${chilliImg(v.image)}" alt="${v.name}">
+          <div class="cc-body">
+            <h4>${v.name}</h4>
+            <p>Click to view details</p>
+          </div>
+        </div>
+      `).join("")}
+    </div>
+  `;
+
+  document.getElementById("openPumpkinPdf").onclick = () =>
+    window.open("assets/pdfs/pumpkin.pdf","_blank","noopener");
+
+  body.querySelectorAll(".chilli-card").forEach(card=>{
+    card.onclick = () =>
+      openPumpkinDetail(card.getAttribute("data-i"));
+  });
+
+  modal.classList.add("active");
+}
+
+function openPumpkinDetail(i){
+  const v = pumpkinVarieties[i];
+  const body = modal.querySelector(".modal-body");
+
+  body.innerHTML = `
+    <div class="chilli-header">
+      <button class="btn btn-primary" id="backPumpkin">← Back</button>
+      <div style="flex:1"></div>
+      <a class="btn btn-primary" href="assets/pdfs/pumpkin.pdf" target="_blank" rel="noopener">
+        Open PDF
+      </a>
+      <a class="btn btn-primary" href="assets/pdfs/pumpkin.pdf" download>
+        Download PDF
+      </a>
+    </div>
+
+    <div class="chilli-detail" style="grid-template-columns:1fr;">
+      <div class="chilli-detail-left">
+        <img src="${chilliImg(v.image)}" alt="${v.name}"
+             style="width:100%;max-height:75vh;object-fit:contain;background:#fff;">
+      </div>
+    </div>
+  `;
+
+  document.getElementById("backPumpkin").onclick = openPumpkinCatalog;
+}
+function openCucumberCatalog(){
+  const body = modal.querySelector(".modal-body");
+  body.classList.add("chilli-modal");
+
+  body.innerHTML = `
+    <div class="chilli-header">
+      <div>
+        <div class="chilli-title">Cucumber</div>
+        <div class="chilli-sub">Select cucumber variety</div>
+      </div>
+      <button class="btn btn-primary" id="openCucumberPdf">Package Of Practices</button>
+    </div>
+
+    <div class="chilli-grid">
+      ${cucumberVarieties.map((v, i) => `
+        <div class="chilli-card" data-i="${i}">
+          <img src="${chilliImg(v.image)}" alt="${v.name}">
+          <div class="cc-body">
+            <h4>${v.name}</h4>
+            <p>Click to view details</p>
+          </div>
+        </div>
+      `).join("")}
+    </div>
+  `;
+
+  document.getElementById("openCucumberPdf").onclick = () =>
+    window.open("assets/pdfs/cucumber.pdf","_blank","noopener");
+
+  body.querySelectorAll(".chilli-card").forEach(card=>{
+    card.onclick = () => openCucumberDetail(card.getAttribute("data-i"));
+  });
+
+  modal.classList.add("active");
+}
+
+function openCucumberDetail(i){
+  const v = cucumberVarieties[i];
+  const body = modal.querySelector(".modal-body");
+
+  body.innerHTML = `
+    <div class="chilli-header">
+      <button class="btn btn-primary" id="backCucumber">← Back</button>
+      <div style="flex:1"></div>
+      <a class="btn btn-primary" href="assets/pdfs/cucumber.pdf" target="_blank" rel="noopener">Open PDF</a>
+      <a class="btn btn-primary" href="assets/pdfs/cucumber.pdf" download>Download PDF</a>
+    </div>
+
+    <div class="chilli-detail" style="grid-template-columns:1fr;">
+      <div class="chilli-detail-left">
+        <img src="${chilliImg(v.image)}" alt="${v.name}"
+             style="width:100%;max-height:75vh;object-fit:contain;background:#fff;">
+      </div>
+    </div>
+  `;
+
+  document.getElementById("backCucumber").onclick = openCucumberCatalog;
+}
+
+function openCapsicumCatalog(){
+  const body = modal.querySelector(".modal-body");
+  body.classList.add("chilli-modal");
+
+  body.innerHTML = `
+    <div class="chilli-header">
+      <div>
+        <div class="chilli-title">Capsicum</div>
+        <div class="chilli-sub">Select capsicum variety</div>
+      </div>
+      <button class="btn btn-primary" id="openCapsicumPdf">
+        Package Of Practices
+      </button>
+    </div>
+
+    <div class="chilli-grid">
+      ${capsicumVarieties.map((v, i) => `
+        <div class="chilli-card" data-i="${i}">
+          <img src="${chilliImg(v.image)}" alt="${v.name}">
+          <div class="cc-body">
+            <h4>${v.name}</h4>
+            <p>Click to view details</p>
+          </div>
+        </div>
+      `).join("")}
+    </div>
+  `;
+
+  document.getElementById("openCapsicumPdf").onclick = () =>
+    window.open("assets/pdfs/capsicum.pdf","_blank","noopener");
+
+  body.querySelectorAll(".chilli-card").forEach(card=>{
+    card.onclick = () => openCapsicumDetail(card.getAttribute("data-i"));
+  });
+
+  modal.classList.add("active");
+}
+
+function openCapsicumDetail(i){
+  const v = capsicumVarieties[i];
+  const body = modal.querySelector(".modal-body");
+
+  body.innerHTML = `
+    <div class="chilli-header">
+      <button class="btn btn-primary" id="backCapsicum">← Back</button>
+      <div style="flex:1"></div>
+      <a class="btn btn-primary" href="assets/pdfs/capsicum.pdf" target="_blank" rel="noopener">
+        Open PDF
+      </a>
+      <a class="btn btn-primary" href="assets/pdfs/capsicum.pdf" download>
+        Download PDF
+      </a>
+    </div>
+
+    <div class="chilli-detail" style="grid-template-columns:1fr;">
+      <div class="chilli-detail-left">
+        <img src="${chilliImg(v.image)}" alt="${v.name}"
+             style="width:100%;max-height:75vh;object-fit:contain;background:#fff;">
+      </div>
+    </div>
+  `;
+
+  document.getElementById("backCapsicum").onclick = openCapsicumCatalog;
+}
+
+
+
+
+
+
+
 
 
 
@@ -4128,6 +4494,81 @@ document.querySelectorAll(
     openBhendiCatalog();
   });
 });
+
+
+document.querySelectorAll(".open-karela").forEach(btn=>{
+  btn.addEventListener("click", e=>{
+    e.preventDefault();
+    openKarelaCatalog();
+  });
+});
+
+document.querySelectorAll(
+  '.product-card[data-product="karela"] img, .product-card[data-product="karela"] .product-info'
+).forEach(el=>{
+  el.style.cursor="pointer";
+  el.addEventListener("click", e=>{
+    e.preventDefault();
+    openKarelaCatalog();
+  });
+});
+
+document.querySelectorAll(".open-pumpkin").forEach(btn=>{
+  btn.addEventListener("click", e=>{
+    e.preventDefault();
+    openPumpkinCatalog();
+  });
+});
+
+document.querySelectorAll(
+  '.product-card[data-product="pumpkin"] img, .product-card[data-product="pumpkin"] .product-info'
+).forEach(el=>{
+  el.style.cursor="pointer";
+  el.addEventListener("click", e=>{
+    e.preventDefault();
+    openPumpkinCatalog();
+  });
+});
+
+document.querySelectorAll(".open-cucumber").forEach(btn=>{
+  btn.addEventListener("click", e=>{
+    e.preventDefault();
+    openCucumberCatalog();
+  });
+});
+
+document.querySelectorAll(
+  '.product-card[data-product="cucumber"] img, .product-card[data-product="cucumber"] .product-info'
+).forEach(el=>{
+  el.style.cursor="pointer";
+  el.addEventListener("click", e=>{
+    e.preventDefault();
+    openCucumberCatalog();
+  });
+});
+document.querySelectorAll(".open-capsicum").forEach(btn=>{
+  btn.addEventListener("click", e=>{
+    e.preventDefault();
+    openCapsicumCatalog();
+  });
+});
+
+document.querySelectorAll(
+  '.product-card[data-product="capsicum"] img, .product-card[data-product="capsicum"] .product-info'
+).forEach(el=>{
+  el.style.cursor="pointer";
+  el.addEventListener("click", e=>{
+    e.preventDefault();
+    openCapsicumCatalog();
+  });
+});
+
+
+
+
+
+
+
 
 
 
