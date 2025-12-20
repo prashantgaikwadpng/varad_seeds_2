@@ -388,29 +388,27 @@
 }
 
   
-        .logo {
+ .logo {
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-left: auto;   /* PUSH LOGO TO RIGHT */
-    margin-right: 40px;  /* SPACE BEFORE NAV */
+    gap: 15px;
+    margin-right: 40px;
 }
 
-  
-          .logo-icon {
-              width: 55px;
-              height: 55px;
-              background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
-              border-radius: 50%;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              position: relative;
-          }
-  
-    .logo-icon img{
-    width: 70px;
-    height: 70px;
+  .logo-icon {
+    width: auto;
+    height: auto;
+    background: transparent;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-icon img{
+    height: 80px;        /* MAIN CONTROL */
+    width: auto;
+    max-width: 160px;
     object-fit: contain;
 }
 
@@ -424,7 +422,8 @@
               font-family: 'Playfair Display', serif;
               font-size: 1.8rem;
               color: #c62828;
-              line-height: 1.2;
+              line-height: 1.1;
+              
           }
   
        .logo-text span {
