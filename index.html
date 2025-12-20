@@ -275,26 +275,46 @@
             visibility: hidden;
         }
 
-        .loader {
-            position: relative;
-            width: 80px;
-            height: 80px;
-        }
+        /* ==================== PRELOADER (LOGO + ROTATING DOTS) ==================== */
+.loader-logo{
+  position: relative;
+  width: 160px;
+  height: 160px;
+  display: grid;
+  place-items: center;
+}
 
-        .loader .seed {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: var(--primary-green);
-            border-radius: 50% 50% 50% 0;
-            transform: rotate(-45deg);
-            animation: seedBounce 1.5s infinite ease-in-out;
-        }
+.loader-logo-img{
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+}
 
-        .loader .seed:nth-child(1) { top: 0; left: 30px; animation-delay: 0s; }
-        .loader .seed:nth-child(2) { top: 30px; left: 0; animation-delay: 0.2s; }
-        .loader .seed:nth-child(3) { top: 30px; left: 60px; animation-delay: 0.4s; }
-        .loader .seed:nth-child(4) { top: 60px; left: 30px; animation-delay: 0.6s; }
+.loader-ring{
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  animation: ringRotate 3s linear infinite;
+  background:
+    radial-gradient(circle, var(--primary-green) 5px, transparent 6px) 50% 6% / 12px 12px no-repeat,
+    radial-gradient(circle, var(--primary-green) 5px, transparent 6px) 72% 12% / 12px 12px no-repeat,
+    radial-gradient(circle, var(--primary-green) 5px, transparent 6px) 88% 28% / 12px 12px no-repeat,
+    radial-gradient(circle, var(--primary-green) 5px, transparent 6px) 94% 50% / 12px 12px no-repeat,
+    radial-gradient(circle, var(--primary-green) 5px, transparent 6px) 88% 72% / 12px 12px no-repeat,
+    radial-gradient(circle, var(--primary-green) 5px, transparent 6px) 72% 88% / 12px 12px no-repeat,
+    radial-gradient(circle, var(--primary-green) 5px, transparent 6px) 50% 94% / 12px 12px no-repeat,
+    radial-gradient(circle, var(--primary-green) 5px, transparent 6px) 28% 88% / 12px 12px no-repeat,
+    radial-gradient(circle, var(--primary-green) 5px, transparent 6px) 12% 72% / 12px 12px no-repeat,
+    radial-gradient(circle, var(--primary-green) 5px, transparent 6px) 6% 50% / 12px 12px no-repeat,
+    radial-gradient(circle, var(--primary-green) 5px, transparent 6px) 12% 28% / 12px 12px no-repeat,
+    radial-gradient(circle, var(--primary-green) 5px, transparent 6px) 28% 12% / 12px 12px no-repeat;
+}
+
+@keyframes ringRotate{
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
 
         @keyframes seedBounce {
             0%, 100% { transform: rotate(-45deg) scale(1); opacity: 1; }
@@ -2255,13 +2275,12 @@
 <body>
     <!-- Preloader -->
     <div class="preloader">
-        <div class="loader">
-            <div class="seed"></div>
-            <div class="seed"></div>
-            <div class="seed"></div>
-            <div class="seed"></div>
-        </div>
-    </div>
+  <div class="loader loader-logo">
+    <span class="loader-ring" aria-hidden="true"></span>
+    <img src="assets/images/varadseeds.png" alt="Varad Seeds Logo" class="loader-logo-img">
+  </div>
+</div>
+
 
     <!-- Top Bar -->
     <div class="top-bar">
