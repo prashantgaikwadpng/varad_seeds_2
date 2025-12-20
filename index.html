@@ -1995,7 +1995,30 @@
               background: var(--dark-green);
               transform: translateY(-5px);
           }
-  
+  /* ==================== WHATSAPP FLOAT BUTTON ==================== */
+.whatsapp-float{
+    position: fixed;
+    left: 20px;
+    bottom: 30px;
+    width: 55px;
+    height: 55px;
+    background: #25D366;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    z-index: 999;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover{
+    transform: scale(1.1);
+    background: #1ebe5d;
+}
+
           /* ==================== MODAL ==================== */
           .modal {
               position: fixed;
@@ -2311,7 +2334,7 @@
                   <span><i class="fas fa-phone-alt"></i> +91 97643 50436, 88068 92783</span>
                   <span><i class="fas fa-envelope"></i> info@varadseeds.com</span>
                   <span><i class="fas fa-clock"></i> Mon - Sat: 9:00 AM - 6:00 PM</span>
-              </div>
+              </div>  
               <div class="top-bar-right">
                   <a href="#"><i class="fab fa-facebook-f"></i></a>
                   <a href="#"><i class="fab fa-twitter"></i></a>
@@ -5387,5 +5410,13 @@
   
           console.log('🌱 Varad Seeds Website Loaded Successfully!');
       </script>
+  <!-- WhatsApp Floating Button -->
+<a href="https://wa.me/917020051513"
+   class="whatsapp-float"
+   target="_blank"
+   aria-label="Chat on WhatsApp">
+   <i class="fab fa-whatsapp"></i>
+</a>
+
   </body>
                   </html>
