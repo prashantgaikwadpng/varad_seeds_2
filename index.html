@@ -1376,6 +1376,11 @@
               grid-template-rows: repeat(2, 250px);
               gap: 20px;
           }
+          .gallery-item:nth-child(1){
+    grid-column: auto;
+    grid-row: auto;
+}
+
   
           .gallery-item {
               position: relative;
@@ -3071,17 +3076,23 @@
               </div>
               
               <div class="gallery-grid">
-  <div class="gallery-item">
+<div class="gallery-item">
+  <a href="assets/images/gallery/farmer-01.jpg" class="gallery-link">
     <img src="assets/images/gallery/farmer-01.jpg" alt="Farmer Visit 01" loading="lazy">
-  </div>
+  </a>
+</div>
 
   <div class="gallery-item">
-    <img src="assets/images/gallery/farmer-02.jpg" alt="Farmer Visit 02" loading="lazy">
-  </div>
+  <a href="assets/images/gallery/farmer-01.jpg" class="gallery-link">
+    <img src="assets/images/gallery/farmer-02.jpg" alt="Farmer Visit 01" loading="lazy">
+  </a>
+</div>
 
-  <div class="gallery-item">
-    <img src="assets/images/gallery/farmer-03.jpg" alt="Farmer Visit 03" loading="lazy">
-  </div>
+<div class="gallery-item">
+  <a href="assets/images/gallery/farmer-01.jpg" class="gallery-link">
+    <img src="assets/images/gallery/farmer-03.jpg" alt="Farmer Visit 01" loading="lazy">
+  </a>
+</div>
 
   <!-- repeat for all images -->
 </div>
