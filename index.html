@@ -397,20 +397,19 @@
            /* ===== HEADER LOGO = PNG + DOT RING (LIKE PRELOADER) ===== */
 ./* ===== HEADER LOGO (PNG ONLY – BIGGER) ===== */
 .logo-icon{
-  width: 90px;          /* INCREASE SIZE HERE */
-  height: 90px;         /* INCREASE SIZE HERE */
+  width: 55px;        /* KEEP AS IS */
+  height: 55px;       /* KEEP AS IS */
   position: relative;
   display: grid;
   place-items: center;
   background: transparent;
 }
-
 .header-logo-img{
   width: 100%;
   height: 100%;
   object-fit: contain;
+  transform: scale(1.6);   /* 🔥 INCREASE LOGO VISUALLY */
 }
-
 @media (max-width: 992px){
   .logo-icon{
     width: 70px;
