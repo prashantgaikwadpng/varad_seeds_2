@@ -1380,6 +1380,41 @@
     grid-column: auto;
     grid-row: auto;
 }
+/* ==================== GALLERY LIGHTBOX ==================== */
+.lightbox{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 10000;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.lightbox.active{
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox-img{
+  max-width: 92vw;
+  max-height: 88vh;
+  border-radius: 10px;
+}
+
+.lightbox-close{
+  position: absolute;
+  top: 18px;
+  right: 28px;
+  font-size: 38px;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+}
+
 
   
           .gallery-item {
@@ -1389,10 +1424,11 @@
               cursor: pointer;
           }
   
-          .gallery-item:nth-child(1) {
-              grid-column: span 2;
-              grid-row: span 2;
-          }
+         .gallery-item:nth-child(1){
+  grid-column: auto;
+  grid-row: auto;
+}
+
   
           .gallery-item img {
               width: 100%;
@@ -3074,25 +3110,8 @@
                   <h2>Our Gallery</h2>
                   <p>Glimpses of our farms, research facilities, and happy farming community</p>
               </div>
-              
-              <div class="gallery-grid">
-<div class="gallery-item">
-  <a href="assets/images/gallery/farmer-01.jpg" class="gallery-link">
-    <img src="assets/images/gallery/farmer-01.jpg" alt="Farmer Visit 01" loading="lazy">
-  </a>
-</div>
+             
 
-  <div class="gallery-item">
-  <a href="assets/images/gallery/farmer-01.jpg" class="gallery-link">
-    <img src="assets/images/gallery/farmer-02.jpg" alt="Farmer Visit 01" loading="lazy">
-  </a>
-</div>
-
-<div class="gallery-item">
-  <a href="assets/images/gallery/farmer-01.jpg" class="gallery-link">
-    <img src="assets/images/gallery/farmer-03.jpg" alt="Farmer Visit 01" loading="lazy">
-  </a>
-</div>
 
   <!-- repeat for all images -->
 </div>
@@ -5411,6 +5430,11 @@
    aria-label="Chat on WhatsApp">
    <i class="fab fa-whatsapp"></i>
 </a>
+<!-- Gallery Lightbox -->
+<div class="lightbox" id="galleryLightbox" aria-hidden="true">
+  <span class="lightbox-close" aria-label="Close">&times;</span>
+  <img class="lightbox-img" src="" alt="Gallery Image">
+</div>
 
   </body>
                   </html>
