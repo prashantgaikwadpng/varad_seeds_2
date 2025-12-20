@@ -3080,7 +3080,62 @@
           </div>
       </div>
   </div>
-  
+  <div class="product-card" data-category="field" data-product="soybean">
+    <div class="product-image">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Soybeans_01.jpg" alt="Soybean Seeds">
+        <div class="product-overlay">
+            <a href="#" class="open-soybean" title="View Varieties">
+                <i class="fas fa-seedling"></i>
+            </a>
+            <a href="#" title="Wishlist"><i class="fas fa-heart"></i></a>
+        </div>
+    </div>
+    <div class="product-info">
+        <h3>Soybean</h3>
+        <p class="variety">Click to view all soybean varieties</p>
+        <div class="product-meta" style="justify-content:flex-end;">
+            <span style="font-weight:600; color: var(--primary-green);">View Details →</span>
+        </div>
+    </div>
+</div>
+<div class="product-card" data-category="pulse" data-product="pigeonpea">
+    <div class="product-image">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Texture_des_graine_du_pois_d%27Angole_au_B%C3%A9nin1.jpg" alt="Pigeon Pea Seeds">
+        <div class="product-overlay">
+            <a href="#" class="open-pigeonpea" title="View Varieties">
+                <i class="fas fa-seedling"></i>
+            </a>
+            <a href="#" title="Wishlist"><i class="fas fa-heart"></i></a>
+        </div>
+    </div>
+    <div class="product-info">
+        <h3>Pigeon Pea (Toor)</h3>
+        <p class="variety">Click to view all pigeon pea varieties</p>
+        <div class="product-meta" style="justify-content:flex-end;">
+            <span style="font-weight:600; color: var(--primary-green);">View Details →</span>
+        </div>
+    </div>
+</div>
+<div class="product-card" data-category="vegetable" data-product="bottlegourd">
+  <div class="product-image">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Courge_encore_verte.jpg" alt="Bottle Gourd Seeds">
+    <div class="product-overlay">
+      <a href="#" class="open-bottlegourd" title="View Varieties">
+        <i class="fas fa-seedling"></i>
+      </a>
+      <a href="#" title="Wishlist"><i class="fas fa-heart"></i></a>
+    </div>
+  </div>
+  <div class="product-info">
+    <h3>Bottle Gourd (Lauki)</h3>
+    <p class="variety">Click to view all bottle gourd varieties</p>
+    <div class="product-meta" style="justify-content:flex-end;">
+      <span style="font-weight:600; color: var(--primary-green);">View Details →</span>
+    </div>
+  </div>
+</div>
+
+
   
   
   
@@ -4256,9 +4311,9 @@
   
   // ==================== BRINJAL CATALOG (Modal) ====================
   const brinjalVarieties = [
-    { name: "F1- VARAD BRINJAL 01", image: "assets/images/brinjal/BRINJAL AMEYA.png" },
-    { name: "F1- VARAD BRINJAL 02", image: "assets/images/brinjal/BRINJAL-804.png" },
-    { name: "F1- VARAD BRINJAL 02", image: "assets/images/brinjal/PRIYANKA.png" }
+    { name: "BRINJAL AMEYA", image: "assets/images/brinjal/BRINJAL AMEYA.png" },
+    { name: "BRINJAL-804", image: "assets/images/brinjal/BRINJAL-804.png" },
+    { name: "PRIYANKA", image: "assets/images/brinjal/PRIYANKA.png" }
   ];
   
   // ==================== Maize CATALOG (Modal) ====================
@@ -4299,10 +4354,7 @@
   
   // ==================== PUMPKIN CATALOG ====================
   const pumpkinVarieties = [
-    { name: "VARAD PUMPKIN - VSPH-2", image: "assets/images/pumpkin/VSPH-2.png" },
-    { name: "VARAD PUMPKIN - VARDHAN", image: "assets/images/pumpkin/VARDHAN.png" },
-    { name: "VARAD PUMPKIN - SHIV", image: "assets/images/pumpkin/SHIV.png" },
-    { name: "VARAD PUMPKIN - SARTHAK-8", image: "assets/images/pumpkin/SARTHAK-8.png" }
+    { name: "VARAD PUMPKIN - VSPH-2", image: "assets/images/pumpkin/VSPH-2.png" }
   ];
   // ==================== CUCUMBER CATALOG ====================
   const cucumberVarieties = [
@@ -4347,6 +4399,22 @@
     { name: "CAULIFLOWER - F1 CAULIFLOWER VARAD-101", image: "assets/images/cauliflower/F1 CAULIFLOWER VARAD-101.png" }
    
   ];
+  
+  // ==================== SOYBEAN CATALOG ====================
+const soybeanVarieties = [
+  { name: "SOYBEAN-VS 9305", image: "assets/images/soybean/SOYBEAN-VS 9305.png" }
+];
+// ==================== PIGEON PEA (TOOR) CATALOG ====================
+const pigeonPeaVarieties = [
+  { name: "PIGEON PEA(TUR) DHAMAKA", image: "assets/images/pigeonpea/PIGEON PEA(TUR) DHAMAKA.png" } 
+];
+// ==================== BOTTLE GOURD (LAUKI) CATALOG ====================
+const bottleGourdVarieties = [
+  { name: "SARTHAK-8", image: "assets/images/bottlegourd/SARTHAK-8.png" },
+  { name: "SHIV", image: "assets/images/bottlegourd/SHIV.png" },
+  { name: "VARDHAN", image: "assets/images/bottlegourd/VARDHAN.png" }
+];
+
   
   
   
@@ -5503,7 +5571,196 @@
     document.getElementById("backCauliflower").onclick = openCauliflowerCatalog;
   }
   
-  
+  function openSoybeanCatalog(){
+  const body = modal.querySelector(".modal-body");
+  body.classList.add("chilli-modal");
+
+  body.innerHTML = `
+    <div class="chilli-header">
+      <div>
+        <div class="chilli-title">Soybean</div>
+        <div class="chilli-sub">Select soybean variety</div>
+      </div>
+      <button class="btn btn-primary" id="openSoybeanPdf">
+        Package Of Practices
+      </button>
+    </div>
+
+    <div class="chilli-grid">
+      ${soybeanVarieties.map((v, i) => `
+        <div class="chilli-card" data-i="${i}">
+          <img src="${chilliImg(v.image)}" alt="${v.name}">
+          <div class="cc-body">
+            <h4>${v.name}</h4>
+            <p>Click to view details</p>
+          </div>
+        </div>
+      `).join("")}
+    </div>
+  `;
+
+  document.getElementById("openSoybeanPdf").onclick = () =>
+    window.open("assets/pdfs/soybean.pdf","_blank","noopener");
+
+  body.querySelectorAll(".chilli-card").forEach(card=>{
+    card.onclick = () => openSoybeanDetail(card.getAttribute("data-i"));
+  });
+
+  modal.classList.add("active");
+}
+
+function openSoybeanDetail(i){
+  const v = soybeanVarieties[i];
+  const body = modal.querySelector(".modal-body");
+
+  body.innerHTML = `
+    <div class="chilli-header">
+      <button class="btn btn-primary" id="backSoybean">← Back</button>
+      <div style="flex:1"></div>
+      <a class="btn btn-primary" href="assets/pdfs/Soyabean.pdf" target="_blank" rel="noopener">
+        Open PDF
+      </a>
+    </div>
+
+    <div class="chilli-detail" style="grid-template-columns:1fr;">
+      <div class="chilli-detail-left">
+        <img src="${chilliImg(v.image)}" alt="${v.name}"
+             style="width:100%;max-height:75vh;object-fit:contain;background:#fff;">
+      </div>
+    </div>
+  `;
+
+  document.getElementById("backSoybean").onclick = openSoybeanCatalog;
+}
+function openPigeonPeaCatalog(){
+  const body = modal.querySelector(".modal-body");
+  body.classList.add("chilli-modal");
+
+  body.innerHTML = `
+    <div class="chilli-header">
+      <div>
+        <div class="chilli-title">Pigeon Pea (Toor)</div>
+        <div class="chilli-sub">Select pigeon pea variety</div>
+      </div>
+      <button class="btn btn-primary" id="openPigeonPeaPdf">
+        Package Of Practices
+      </button>
+    </div>
+
+    <div class="chilli-grid">
+      ${pigeonPeaVarieties.map((v, i) => `
+        <div class="chilli-card" data-i="${i}">
+          <img src="${chilliImg(v.image)}" alt="${v.name}">
+          <div class="cc-body">
+            <h4>${v.name}</h4>
+            <p>Click to view details</p>
+          </div>
+        </div>
+      `).join("")}
+    </div>
+  `;
+
+  document.getElementById("openPigeonPeaPdf").onclick = () =>
+    window.open("assets/pdfs/pigeon_pea.pdf","_blank","noopener");
+
+  body.querySelectorAll(".chilli-card").forEach(card=>{
+    card.onclick = () => openPigeonPeaDetail(card.getAttribute("data-i"));
+  });
+
+  modal.classList.add("active");
+}
+
+function openPigeonPeaDetail(i){
+  const v = pigeonPeaVarieties[i];
+  const body = modal.querySelector(".modal-body");
+
+  body.innerHTML = `
+    <div class="chilli-header">
+      <button class="btn btn-primary" id="backPigeonPea">← Back</button>
+      <div style="flex:1"></div>
+      <a class="btn btn-primary" href="assets/pdfs/pigeon_pea.pdf" target="_blank" rel="noopener">
+        Open PDF
+    </div>
+
+    <div class="chilli-detail" style="grid-template-columns:1fr;">
+      <div class="chilli-detail-left">
+        <img src="${chilliImg(v.image)}" alt="${v.name}"
+             style="width:100%;max-height:75vh;object-fit:contain;background:#fff;">
+      </div>
+    </div>
+  `;
+
+  document.getElementById("backPigeonPea").onclick = openPigeonPeaCatalog;
+}
+
+function openBottleGourdCatalog(){
+  const body = modal.querySelector(".modal-body");
+  body.classList.add("chilli-modal");
+
+  body.innerHTML = `
+    <div class="chilli-header">
+      <div>
+        <div class="chilli-title">Bottle Gourd (Lauki)</div>
+        <div class="chilli-sub">Select bottle gourd variety</div>
+      </div>
+      <button class="btn btn-primary" id="openBottleGourdPdf">
+        Package Of Practices
+      </button>
+    </div>
+
+    <div class="chilli-grid">
+      ${bottleGourdVarieties.map((v, i) => `
+        <div class="chilli-card" data-i="${i}">
+          <img src="${chilliImg(v.image)}" alt="${v.name}">
+          <div class="cc-body">
+            <h4>${v.name}</h4>
+            <p>Click to view details</p>
+          </div>
+        </div>
+      `).join("")}
+    </div>
+  `;
+
+  document.getElementById("openBottleGourdPdf").onclick = () =>
+    window.open("assets/pdfs/bottle_gourd.pdf","_blank","noopener");
+
+  body.querySelectorAll(".chilli-card").forEach(card=>{
+    card.onclick = () => openBottleGourdDetail(card.getAttribute("data-i"));
+  });
+
+  modal.classList.add("active");
+}
+
+function openBottleGourdDetail(i){
+  const v = bottleGourdVarieties[i];
+  const body = modal.querySelector(".modal-body");
+
+  body.innerHTML = `
+    <div class="chilli-header">
+      <button class="btn btn-primary" id="backBottleGourd">← Back</button>
+      <div style="flex:1"></div>
+      <a class="btn btn-primary" href="assets/pdfs/bottle_gourd.pdf" target="_blank" rel="noopener">
+        Open PDF
+      </a>
+       
+    </div>
+
+    <div class="chilli-detail" style="grid-template-columns:1fr;">
+      <div class="chilli-detail-left">
+        <img src="${chilliImg(v.image)}" alt="${v.name}"
+             style="width:100%;max-height:75vh;object-fit:contain;background:#fff;">
+      </div>
+      <div class="chilli-actions" style="justify-content:center;">
+        <a class="btn btn-primary" href="#contact">Quick Enquiry</a>
+        <a class="btn btn-secondary" href="#products">Back to Products</a>
+      </div>
+    </div>
+  `;
+
+  document.getElementById("backBottleGourd").onclick = openBottleGourdCatalog;
+}
+
+
   
   
   
@@ -5810,6 +6067,58 @@
       openCauliflowerCatalog();
     });
   });
+  document.querySelectorAll(".open-soybean").forEach(btn=>{
+  btn.addEventListener("click", e=>{
+    e.preventDefault();
+    openSoybeanCatalog();
+  });
+});
+
+document.querySelectorAll(
+  '.product-card[data-product="soybean"] img, .product-card[data-product="soybean"] .product-info'
+).forEach(el=>{
+  el.style.cursor="pointer";
+  el.addEventListener("click", e=>{
+    e.preventDefault();
+    openSoybeanCatalog();
+  });
+});
+document.querySelectorAll(".open-pigeonpea").forEach(btn=>{
+  btn.addEventListener("click", e=>{
+    e.preventDefault();
+    openPigeonPeaCatalog();
+  });
+});
+
+document.querySelectorAll(
+  '.product-card[data-product="pigeonpea"] img, .product-card[data-product="pigeonpea"] .product-info'
+).forEach(el=>{
+  el.style.cursor="pointer";
+  el.addEventListener("click", e=>{
+    e.preventDefault();
+    openPigeonPeaCatalog();
+  });
+});
+document.querySelectorAll(".open-bottlegourd").forEach(btn=>{
+  btn.addEventListener("click", e=>{
+    e.preventDefault();
+    openBottleGourdCatalog();
+  });
+});
+
+document.querySelectorAll(
+  '.product-card[data-product="bottlegourd"] img, .product-card[data-product="bottlegourd"] .product-info'
+).forEach(el=>{
+  el.style.cursor="pointer";
+  el.addEventListener("click", e=>{
+    e.preventDefault();
+    openBottleGourdCatalog();
+  });
+});
+
+
+
+
   
   
   
