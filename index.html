@@ -381,18 +381,21 @@
               z-index: 1000;
           }
   
-          .header-main {
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-              padding: 15px 0;
-          }
+         .header-main {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+}
+
   
-          .logo {
-              display: flex;
-              align-items: center;
-              gap: 12px;
-          }
+        .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: auto;   /* PUSH LOGO TO RIGHT */
+    margin-right: 40px;  /* SPACE BEFORE NAV */
+}
+
   
           .logo-icon {
               width: 55px;
@@ -405,10 +408,9 @@
               position: relative;
           }
   
-       
-          .logo-icon img{
-    width: 55px;
-    height: 55px;
+    .logo-icon img{
+    width: 70px;
+    height: 70px;
     object-fit: contain;
 }
 
