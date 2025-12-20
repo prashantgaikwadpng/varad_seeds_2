@@ -412,37 +412,6 @@
   border-radius: 50%;
 }
 
-/* dotted ring around logo */
-.logo-icon::after{
-  content: '';
-  position: absolute;
-  width: 65px;
-  height: 65px;
-  border-radius: 50%;
-  animation: rotate 12s linear infinite; /* slow, premium */
-
-  background:
-    radial-gradient(circle, var(--primary-green) 3px, transparent 4px) 50% 6% / 10px 10px no-repeat,
-    radial-gradient(circle, var(--primary-green) 3px, transparent 4px) 72% 12% / 10px 10px no-repeat,
-    radial-gradient(circle, var(--primary-green) 3px, transparent 4px) 88% 28% / 10px 10px no-repeat,
-    radial-gradient(circle, var(--primary-green) 3px, transparent 4px) 94% 50% / 10px 10px no-repeat,
-    radial-gradient(circle, var(--primary-green) 3px, transparent 4px) 88% 72% / 10px 10px no-repeat,
-    radial-gradient(circle, var(--primary-green) 3px, transparent 4px) 72% 88% / 10px 10px no-repeat,
-    radial-gradient(circle, var(--primary-green) 3px, transparent 4px) 50% 94% / 10px 10px no-repeat,
-    radial-gradient(circle, var(--primary-green) 3px, transparent 4px) 28% 88% / 10px 10px no-repeat,
-    radial-gradient(circle, var(--primary-green) 3px, transparent 4px) 12% 72% / 10px 10px no-repeat,
-    radial-gradient(circle, var(--primary-green) 3px, transparent 4px) 6% 50% / 10px 10px no-repeat,
-    radial-gradient(circle, var(--primary-green) 3px, transparent 4px) 12% 28% / 10px 10px no-repeat,
-    radial-gradient(circle, var(--primary-green) 3px, transparent 4px) 28% 12% / 10px 10px no-repeat;
-
-  opacity: 0.95;
-}
-
-  
-          @keyframes rotate {
-              from { transform: rotate(0deg); }
-              to { transform: rotate(360deg); }
-          }
   
           .logo-text h1 {
               font-family: 'Playfair Display', serif;
