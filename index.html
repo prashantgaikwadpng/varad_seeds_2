@@ -380,16 +380,12 @@
               top: 0;
               z-index: 1000;
           }
-  header .container{
-  padding-left: 10px;  /* move header content left */
-  padding-right: 20px;
-}
-
+  
           .header-main {
               display: flex;
               justify-content: space-between;
               align-items: center;
-              padding: 8px 0;
+              padding: 15px 0;
           }
   
           .logo {
@@ -398,22 +394,22 @@
               gap: 12px;
           }
   
-        /* ===== HEADER LOGO (PNG) ===== */
-.logo-icon{
-  width: 70px;               /* bigger logo */
-  height: 70px;              /* bigger logo */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;   /* no green circle */
-  border-radius: 0;          /* keep png original shape */
-}
-
-.header-logo-img{
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
+          .logo-icon {
+              width: 55px;
+              height: 55px;
+              background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              position: relative;
+          }
+  
+       
+          .logo-icon img{
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
 }
 
   
@@ -425,7 +421,7 @@
           .logo-text h1 {
               font-family: 'Playfair Display', serif;
               font-size: 1.8rem;
-              color: #c62828;   /* red */
+              color: var(--primary-green);
               line-height: 1.2;
           }
   
@@ -2411,15 +2407,13 @@
           <div class="container">
               <div class="header-main">
                   <a href="#" class="logo">
-  <div class="logo-icon">
-    <img src="assets/images/varadseeds.png" alt="Varad Seeds Logo" class="header-logo-img">
-  </div>
-
-  <div class="logo-text">
-    <h1>Varad Seeds & Agro Tech</h1>
-  </div>
-</a>
-
+                    <div class="logo-icon">
+    <img src="assets/images/varad-agro-tech.png" alt="Varad Seeds and Agro Tech Logo">
+</div>
+                  <div class="logo-text">
+    <h1>Varad Seeds</h1>
+    <span>and Agro Tech</span>
+</div>
                   </a>
   
                   <nav>
@@ -3765,13 +3759,13 @@
                   <div class="footer-grid">
                       <div class="footer-brand">
                           <a href="#" class="logo">
-                              <div class="logo-icon">
-                                  <i class="fas fa-seedling"></i>
-                              </div>
-                              <div class="logo-text">
-                                  <h1>Varad Seeds</h1>
-                                  <span>Growing Excellence</span>
-                              </div>
+                           <div class="logo-icon">
+    <img src="assets/images/varad-agro-tech.png" alt="Varad Seeds and Agro Tech Logo">
+</div>
+                             <div class="logo-text">
+    <h1>Varad Seeds</h1>
+    <span>and Agro Tech</span>
+</div>
                           </a>
                           <p>Varad Seeds is committed to empowering farmers with premium quality seeds that ensure higher yields and sustainable agriculture. Join our growing family of 50,000+ satisfied farmers.</p>
                           <div class="footer-social">
