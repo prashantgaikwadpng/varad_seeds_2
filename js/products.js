@@ -63,8 +63,9 @@ document.querySelectorAll('.product-overlay a[title="Wishlist"]').forEach(btn =>
     });
 });
 
-// ==================== MODAL REFERENCE ====================
-const modal = document.getElementById('productModal');
+// ==================== MODAL REFERENCE (reuse from common.js) ====================
+// NOTE: 'modal' is already declared in common.js, so we just reference it
+const productModal = document.getElementById('productModal');
 
 // Fallback image if local variety image not present yet
 function chilliImg(src) {
@@ -327,7 +328,7 @@ function chilliImg(src){
 
 
 function openChilliCatalog(){
-  const body = modal.querySelector(".modal-body");
+  const body = productModal.querySelector(".modal-body");
   body.classList.add("chilli-modal");
 
   body.innerHTML = `
@@ -365,11 +366,11 @@ function openChilliCatalog(){
     });
   });
 
-  modal.classList.add("active");
+  productModal.classList.add("active");
 }
 function openChilliDetail(idx){
   const v = chilliVarieties[idx];
-  const body = modal.querySelector(".modal-body");
+  const body = productModal.querySelector(".modal-body");
 
   body.innerHTML = `
     <div class="chilli-header">
@@ -405,12 +406,12 @@ function openChilliDetail(idx){
   document.getElementById("backToChilliList")
     .addEventListener("click", openChilliCatalog);
 
-  modal.classList.add("active");
+  productModal.classList.add("active");
 }
 
 
 function openOnionCatalog(){
-  const body = modal.querySelector(".modal-body");
+  const body = productModal.querySelector(".modal-body");
   body.classList.add("chilli-modal");
 
   body.innerHTML = `
@@ -445,12 +446,12 @@ function openOnionCatalog(){
     }
   });
 
-  modal.classList.add("active");
+  productModal.classList.add("active");
 }
 
 function openOnionDetail(idx){
   const v = onionVarieties[idx];
-  const body = modal.querySelector(".modal-body");
+  const body = productModal.querySelector(".modal-body");
 
   body.innerHTML = `
     <div class="chilli-header">
@@ -473,7 +474,7 @@ function openOnionDetail(idx){
 
 
 function openBrinjalCatalog(){
-  const body = modal.querySelector(".modal-body");
+  const body = productModal.querySelector(".modal-body");
   body.classList.add("chilli-modal");
 
   body.innerHTML = `
@@ -508,12 +509,12 @@ function openBrinjalCatalog(){
     }
   });
 
-  modal.classList.add("active");
+  productModal.classList.add("active");
 }
 
 function openBrinjalDetail(idx){
   const v = brinjalVarieties[idx];
-  const body = modal.querySelector(".modal-body");
+  const body = productModal.querySelector(".modal-body");
 
   body.innerHTML = `
     <div class="chilli-header">
@@ -535,7 +536,7 @@ function openBrinjalDetail(idx){
 }
 
 function openMaizeCatalog(){
-  const body = modal.querySelector(".modal-body");
+  const body = productModal.querySelector(".modal-body");
   body.classList.add("chilli-modal");
 
   body.innerHTML = `
@@ -569,12 +570,12 @@ function openMaizeCatalog(){
     };
   });
 
-  modal.classList.add("active");
+  productModal.classList.add("active");
 }
 
 function openMaizeDetail(idx){
   const v = maizeVarieties[idx];
-  const body = modal.querySelector(".modal-body");
+  const body = productModal.querySelector(".modal-body");
 
   body.innerHTML = `
     <div class="chilli-header">
@@ -595,7 +596,7 @@ function openMaizeDetail(idx){
   document.getElementById("backToMaizeList").onclick=openMaizeCatalog;
 }
 function openSpongeGourdCatalog(){
-  const body = modal.querySelector(".modal-body");
+  const body = productModal.querySelector(".modal-body");
   body.classList.add("chilli-modal");
 
   body.innerHTML = `
@@ -629,12 +630,12 @@ function openSpongeGourdCatalog(){
     };
   });
 
-  modal.classList.add("active");
+  productModal.classList.add("active");
 }
 
 function openSpongeGourdDetail(idx){
   const v = spongeGourdVarieties[idx];
-  const body = modal.querySelector(".modal-body");
+  const body = productModal.querySelector(".modal-body");
 
   body.innerHTML = `
     <div class="chilli-header">
@@ -656,7 +657,7 @@ function openSpongeGourdDetail(idx){
 }
 
 function openRidgeGourdCatalog(){
-  const body = modal.querySelector(".modal-body");
+  const body = productModal.querySelector(".modal-body");
   body.classList.add("chilli-modal");
 
   body.innerHTML = `
@@ -690,12 +691,12 @@ function openRidgeGourdCatalog(){
     };
   });
 
-  modal.classList.add("active");
+  productModal.classList.add("active");
 }
 
 function openRidgeGourdDetail(idx){
   const v = ridgeGourdVarieties[idx];
-  const body = modal.querySelector(".modal-body");
+  const body = productModal.querySelector(".modal-body");
 
   body.innerHTML = `
     <div class="chilli-header">
@@ -718,7 +719,7 @@ function openRidgeGourdDetail(idx){
 
 
 function openWatermelonCatalog(){
-  const body = modal.querySelector(".modal-body");
+  const body = productModal.querySelector(".modal-body");
   body.classList.add("chilli-modal");
 
   body.innerHTML = `
@@ -753,12 +754,12 @@ function openWatermelonCatalog(){
       openWatermelonDetail(card.getAttribute("data-i"));
   });
 
-  modal.classList.add("active");
+  productModal.classList.add("active");
 }
 
 function openWatermelonDetail(i){
   const v = watermelonVarieties[i];
-  const body = modal.querySelector(".modal-body");
+  const body = productModal.querySelector(".modal-body");
 
   body.innerHTML = `
     <div class="chilli-header">
@@ -778,7 +779,7 @@ function openWatermelonDetail(i){
 }
 
 function openBhendiCatalog(){
-  const body = modal.querySelector(".modal-body");
+  const body = productModal.querySelector(".modal-body");
   body.classList.add("chilli-modal");
 
   body.innerHTML = `
@@ -813,12 +814,12 @@ function openBhendiCatalog(){
       openBhendiDetail(card.getAttribute("data-i"));
   });
 
-  modal.classList.add("active");
+  productModal.classList.add("active");
 }
 
 function openBhendiDetail(i){
   const v = bhendiVarieties[i];
-  const body = modal.querySelector(".modal-body");
+  const body = productModal.querySelector(".modal-body");
 
   body.innerHTML = `
     <div class="chilli-header">
@@ -839,7 +840,7 @@ function openBhendiDetail(i){
   document.getElementById("backBhendi").onclick = openBhendiCatalog;
 }
 function openKarelaCatalog(){
-  const body = modal.querySelector(".modal-body");
+  const body = productModal.querySelector(".modal-body");
   body.classList.add("chilli-modal");
 
   body.innerHTML = `
@@ -873,12 +874,12 @@ function openKarelaCatalog(){
     card.onclick = () => openKarelaDetail(card.getAttribute("data-i"));
   });
 
-  modal.classList.add("active");
+  productModal.classList.add("active");
 }
 
 function openKarelaDetail(i){
   const v = karelaVarieties[i];
-  const body = modal.querySelector(".modal-body");
+  const body = productModal.querySelector(".modal-body");
 
   body.innerHTML = `
     <div class="chilli-header">
@@ -900,7 +901,7 @@ function openKarelaDetail(i){
 }
 
 function openPumpkinCatalog(){
-  const body = modal.querySelector(".modal-body");
+  const body = productModal.querySelector(".modal-body");
   body.classList.add("chilli-modal");
 
   body.innerHTML = `
@@ -935,12 +936,12 @@ function openPumpkinCatalog(){
       openPumpkinDetail(card.getAttribute("data-i"));
   });
 
-  modal.classList.add("active");
+  productModal.classList.add("active");
 }
 
 function openPumpkinDetail(i){
   const v = pumpkinVarieties[i];
-  const body = modal.querySelector(".modal-body");
+  const body = productModal.querySelector(".modal-body");
 
   body.innerHTML = `
     <div class="chilli-header">
@@ -965,7 +966,7 @@ function openPumpkinDetail(i){
   document.getElementById("backPumpkin").onclick = openPumpkinCatalog;
 }
 function openCucumberCatalog(){
-  const body = modal.querySelector(".modal-body");
+  const body = productModal.querySelector(".modal-body");
   body.classList.add("chilli-modal");
 
   body.innerHTML = `
@@ -997,12 +998,12 @@ function openCucumberCatalog(){
     card.onclick = () => openCucumberDetail(card.getAttribute("data-i"));
   });
 
-  modal.classList.add("active");
+  productModal.classList.add("active");
 }
 
 function openCucumberDetail(i){
   const v = cucumberVarieties[i];
-  const body = modal.querySelector(".modal-body");
+  const body = productModal.querySelector(".modal-body");
 
   body.innerHTML = `
     <div class="chilli-header">
@@ -1024,7 +1025,7 @@ function openCucumberDetail(i){
 }
 
 function openCapsicumCatalog(){
-  const body = modal.querySelector(".modal-body");
+  const body = productModal.querySelector(".modal-body");
   body.classList.add("chilli-modal");
 
   body.innerHTML = `
@@ -1058,12 +1059,12 @@ function openCapsicumCatalog(){
     card.onclick = () => openCapsicumDetail(card.getAttribute("data-i"));
   });
 
-  modal.classList.add("active");
+  productModal.classList.add("active");
 }
 
 function openCapsicumDetail(i){
   const v = capsicumVarieties[i];
-  const body = modal.querySelector(".modal-body");
+  const body = productModal.querySelector(".modal-body");
 
   body.innerHTML = `
     <div class="chilli-header">
@@ -1088,7 +1089,7 @@ function openCapsicumDetail(i){
   document.getElementById("backCapsicum").onclick = openCapsicumCatalog;
 }
 function openTomatoCatalog(){
-  const body = modal.querySelector(".modal-body");
+  const body = productModal.querySelector(".modal-body");
   body.classList.add("chilli-modal");
 
   body.innerHTML = `
@@ -1120,12 +1121,12 @@ function openTomatoCatalog(){
     card.onclick = () => openTomatoDetail(card.getAttribute("data-i"));
   });
 
-  modal.classList.add("active");
+  productModal.classList.add("active");
 }
 
 function openTomatoDetail(i){
   const v = tomatoVarieties[i];
-  const body = modal.querySelector(".modal-body");
+  const body = productModal.querySelector(".modal-body");
 
   body.innerHTML = `
     <div class="chilli-header">
@@ -1147,7 +1148,7 @@ function openTomatoDetail(i){
 }
 
 function openCabbageCatalog(){
-  const body = modal.querySelector(".modal-body");
+  const body = productModal.querySelector(".modal-body");
   body.classList.add("chilli-modal");
 
   body.innerHTML = `
@@ -1181,12 +1182,12 @@ function openCabbageCatalog(){
     card.onclick = () => openCabbageDetail(card.getAttribute("data-i"));
   });
 
-  modal.classList.add("active");
+  productModal.classList.add("active");
 }
 
 function openCabbageDetail(i){
   const v = cabbageVarieties[i];
-  const body = modal.querySelector(".modal-body");
+  const body = productModal.querySelector(".modal-body");
 
   body.innerHTML = `
     <div class="chilli-header">
@@ -1211,7 +1212,7 @@ function openCabbageDetail(i){
   document.getElementById("backCabbage").onclick = openCabbageCatalog;
 }
 function openMuskmelonCatalog(){
-  const body = modal.querySelector(".modal-body");
+  const body = productModal.querySelector(".modal-body");
   body.classList.add("chilli-modal");
 
   body.innerHTML = `
@@ -1243,12 +1244,12 @@ function openMuskmelonCatalog(){
     card.onclick = () => openMuskmelonDetail(card.getAttribute("data-i"));
   });
 
-  modal.classList.add("active");
+  productModal.classList.add("active");
 }
 
 function openMuskmelonDetail(i){
   const v = muskmelonVarieties[i];
-  const body = modal.querySelector(".modal-body");
+  const body = productModal.querySelector(".modal-body");
 
   body.innerHTML = `
     <div class="chilli-header">
@@ -1269,7 +1270,7 @@ function openMuskmelonDetail(i){
   document.getElementById("backMuskmelon").onclick = openMuskmelonCatalog;
 }
 function openRadishCatalog(){
-  const body = modal.querySelector(".modal-body");
+  const body = productModal.querySelector(".modal-body");
   body.classList.add("chilli-modal");
 
   body.innerHTML = `
@@ -1303,12 +1304,12 @@ function openRadishCatalog(){
     card.onclick = () => openRadishDetail(card.getAttribute("data-i"));
   });
 
-  modal.classList.add("active");
+  productModal.classList.add("active");
 }
 
 function openRadishDetail(i){
   const v = radishVarieties[i];
-  const body = modal.querySelector(".modal-body");
+  const body = productModal.querySelector(".modal-body");
 
   body.innerHTML = `
     <div class="chilli-header">
@@ -1333,7 +1334,7 @@ function openRadishDetail(i){
   document.getElementById("backRadish").onclick = openRadishCatalog;
 }
 function openMarigoldCatalog(){
-  const body = modal.querySelector(".modal-body");
+  const body = productModal.querySelector(".modal-body");
   body.classList.add("chilli-modal");
 
   body.innerHTML = `
@@ -1367,12 +1368,12 @@ function openMarigoldCatalog(){
     card.onclick = () => openMarigoldDetail(card.getAttribute("data-i"));
   });
 
-  modal.classList.add("active");
+  productModal.classList.add("active");
 }
 
 function openMarigoldDetail(i){
   const v = marigoldVarieties[i];
-  const body = modal.querySelector(".modal-body");
+  const body = productModal.querySelector(".modal-body");
 
   body.innerHTML = `
     <div class="chilli-header">
@@ -1397,7 +1398,7 @@ function openMarigoldDetail(i){
   document.getElementById("backMarigold").onclick = openMarigoldCatalog;
 }
 function openCauliflowerCatalog(){
-  const body = modal.querySelector(".modal-body");
+  const body = productModal.querySelector(".modal-body");
   body.classList.add("chilli-modal");
 
   body.innerHTML = `
@@ -1431,12 +1432,12 @@ function openCauliflowerCatalog(){
     card.onclick = () => openCauliflowerDetail(card.getAttribute("data-i"));
   });
 
-  modal.classList.add("active");
+  productModal.classList.add("active");
 }
 
 function openCauliflowerDetail(i){
   const v = cauliflowerVarieties[i];
-  const body = modal.querySelector(".modal-body");
+  const body = productModal.querySelector(".modal-body");
 
   body.innerHTML = `
     <div class="chilli-header">
@@ -1462,7 +1463,7 @@ function openCauliflowerDetail(i){
 }
 
 function openSoybeanCatalog(){
-const body = modal.querySelector(".modal-body");
+const body = productModal.querySelector(".modal-body");
 body.classList.add("chilli-modal");
 
 body.innerHTML = `
@@ -1496,12 +1497,12 @@ body.querySelectorAll(".chilli-card").forEach(card=>{
   card.onclick = () => openSoybeanDetail(card.getAttribute("data-i"));
 });
 
-modal.classList.add("active");
+productModal.classList.add("active");
 }
 
 function openSoybeanDetail(i){
 const v = soybeanVarieties[i];
-const body = modal.querySelector(".modal-body");
+const body = productModal.querySelector(".modal-body");
 
 body.innerHTML = `
   <div class="chilli-header">
@@ -1523,7 +1524,7 @@ body.innerHTML = `
 document.getElementById("backSoybean").onclick = openSoybeanCatalog;
 }
 function openPigeonPeaCatalog(){
-const body = modal.querySelector(".modal-body");
+const body = productModal.querySelector(".modal-body");
 body.classList.add("chilli-modal");
 
 body.innerHTML = `
@@ -1557,12 +1558,12 @@ body.querySelectorAll(".chilli-card").forEach(card=>{
   card.onclick = () => openPigeonPeaDetail(card.getAttribute("data-i"));
 });
 
-modal.classList.add("active");
+productModal.classList.add("active");
 }
 
 function openPigeonPeaDetail(i){
 const v = pigeonPeaVarieties[i];
-const body = modal.querySelector(".modal-body");
+const body = productModal.querySelector(".modal-body");
 
 body.innerHTML = `
   <div class="chilli-header">
@@ -1584,7 +1585,7 @@ document.getElementById("backPigeonPea").onclick = openPigeonPeaCatalog;
 }
 
 function openBottleGourdCatalog(){
-const body = modal.querySelector(".modal-body");
+const body = productModal.querySelector(".modal-body");
 body.classList.add("chilli-modal");
 
 body.innerHTML = `
@@ -1618,12 +1619,12 @@ body.querySelectorAll(".chilli-card").forEach(card=>{
   card.onclick = () => openBottleGourdDetail(card.getAttribute("data-i"));
 });
 
-modal.classList.add("active");
+productModal.classList.add("active");
 }
 
 function openBottleGourdDetail(i){
 const v = bottleGourdVarieties[i];
-const body = modal.querySelector(".modal-body");
+const body = productModal.querySelector(".modal-body");
 
 body.innerHTML = `
   <div class="chilli-header">
@@ -2032,116 +2033,3 @@ document.querySelectorAll('.product-card[data-product="chilli"] .product-image i
       openChilliCatalog();
     });
   });
-
-        // ==================== INTERSECTION OBSERVER FOR ANIMATIONS ====================
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all cards and sections
-        document.querySelectorAll(
-        '.feature-card, .product-card, .why-card, .gallery-item').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
-
-        // ==================== SEARCH FUNCTIONALITY ====================
-        const searchInput = document.querySelector('.search-box input');
-        const searchButton = document.querySelector('.search-box button');
-
-        searchButton.addEventListener('click', function() {
-            const searchTerm = searchInput.value.toLowerCase().trim();
-            if (searchTerm) {
-                // Filter products
-                productCards.forEach(card => {
-                    const productName = card.querySelector('.product-info h3').textContent.toLowerCase();
-                    const productVariety = card.querySelector('.variety').textContent.toLowerCase();
-                    
-                    if (productName.includes(searchTerm) || productVariety.includes(searchTerm)) {
-                        card.style.display = 'block';
-                        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-                
-                // Reset category buttons
-                categoryBtns.forEach(btn => btn.classList.remove('active'));
-                document.querySelector('[data-category="all"]').classList.add('active');
-            }
-        });
-
-        searchInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                searchButton.click();
-            }
-        });
-
-        // ==================== DROPDOWN TOGGLE FOR MOBILE ====================
-        if (window.innerWidth <= 992) {
-            document.querySelectorAll('.nav-menu > li > a').forEach(link => {
-                if (link.querySelector('i')) {
-                    link.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        const dropdown = this.nextElementSibling;
-                        if (dropdown) {
-                            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-                        }
-                    });
-                }
-            });
-         }
-
-        // ==================== LAZY LOADING IMAGES ====================
-        if ('IntersectionObserver' in window) {
-            const imageObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        if (img.dataset.src) {
-                            img.src = img.dataset.src;
-                            img.removeAttribute('data-src');
-                        }
-                        imageObserver.unobserve(img);
-                    }
-                });
-            });
-
-            document.querySelectorAll('img[data-src]').forEach(img => {
-                imageObserver.observe(img);
-            });
-        }
-
-        // ==================== ADD TO CART ANIMATION ====================
-        document.querySelectorAll('.product-overlay a[title="Add to Cart"]').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                e.preventDefault();
-                const icon = this.querySelector('i');
-                icon.classList.remove('fa-shopping-cart');
-                icon.classList.add('fa-check');
-                this.style.background = '#4caf50';
-                
-                setTimeout(() => {
-                    icon.classList.remove('fa-check');
-                    icon.classList.add('fa-shopping-cart');
-                    this.style.background = '';
-                }, 1500);
-            });
-        });
-
-        // ==================== WISHLIST TOGGLE ====================
-        document.querySelectorAll('.product-overlay a[title="Wishlist"]').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                e.preventDefault();
