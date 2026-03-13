@@ -162,22 +162,19 @@
             <div class="products-grid">
 
                 <!-- Chilli -->
-                <div class="product-card" data-category="vegetable" data-product="chilli">
-                    <div class="product-image">
-                        <img src="assets/images/site/product-chilli.jpg" alt="Chilli Seeds" loading="lazy">
-                        <div class="product-overlay">
-                            <a href="#" class="open-chilli" title="View Varieties"><i class="fas fa-seedling"></i></a>
-                            <a href="#" title="Wishlist"><i class="fas fa-heart"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Chilli Seeds</h3>
-                        <p class="variety">Click to view all chilli varieties</p>
-                        <div class="product-meta" style="justify-content:flex-end;">
-                            <span style="font-weight:600; color: var(--primary-green);">View Details →</span>
-                        </div>
-                    </div>
-                </div>
+                <div class="product-card" data-category="vegetable">
+    <div class="product-image">
+        <img src="assets/images/products/chilli.jpg" alt="Chilli Seeds">
+        <div class="product-overlay">
+            <button class="action-btn view-details" onclick="openChilliCatalog()">
+                <i class="fas fa-eye"></i> View Details
+            </button>
+            <a href="assets/pdfs/chilli.pdf" class="action-btn practice-btn" target="_blank">
+                <i class="fas fa-file-pdf"></i> Package of Practice
+            </a>
+        </div>
+    </div>
+</div>
 
                 <!-- Onion -->
                 <div class="product-card" data-category="vegetable" data-product="onion">
