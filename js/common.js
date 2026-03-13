@@ -9,7 +9,7 @@ window.addEventListener('load', function() {
     if (preloader) {
         setTimeout(() => {
             preloader.classList.add('hidden');
-        }, 1500);
+        }, 500);
     }
 });
 
