@@ -120,7 +120,26 @@
     background: var(--accent-orange);
     color: var(--white);
 }
+.product-overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
 
+.action-btn {
+    width: 85%;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+}
+
+.view-details { background-color: #2e7d32; color: white; }
+.practice-btn { background-color: #ff9800; color: white; }
 .product-info { padding: 25px; }
 
 .product-info h3 {
