@@ -1,0 +1,1 @@
+// Varad Seeds - Gallery JavaScript
