@@ -23,7 +23,6 @@ if (mobileToggle && navMenu) {
         this.classList.toggle('active');
     });
 
-    // Close menu when clicking outside
     document.addEventListener('click', function(e) {
         if (!navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
             navMenu.classList.remove('active');
@@ -63,10 +62,7 @@ if (backToTop) {
     });
 
     backToTop.addEventListener('click', function() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 }
 
@@ -113,7 +109,6 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe all animatable elements
 document.querySelectorAll(
     '.feature-card, .product-card, .why-card, .gallery-item'
 ).forEach(el => {
@@ -155,17 +150,18 @@ if (contactForm) {
 }
 
 // ==================== MODAL CLOSE (shared) ====================
-const modal = document.getElementById('productModal');
-const modalClose = document.getElementById('modalClose');
+// Using 'var' so products.js can also reference productModal without conflict
+var siteModal = document.getElementById('productModal');
+var modalCloseBtn = document.getElementById('modalClose');
 
-if (modalClose && modal) {
-    modalClose.addEventListener('click', function() {
-        modal.classList.remove('active');
+if (modalCloseBtn && siteModal) {
+    modalCloseBtn.addEventListener('click', function() {
+        siteModal.classList.remove('active');
     });
 
-    modal.addEventListener('click', function(e) {
-        if (e.target === modal) {
-            modal.classList.remove('active');
+    siteModal.addEventListener('click', function(e) {
+        if (e.target === siteModal) {
+            siteModal.classList.remove('active');
         }
     });
 }
