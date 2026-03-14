@@ -252,7 +252,7 @@ header {
     display: flex;
     align-items: center;
     padding: 8px 0;
-    justify-content: flex-start;
+    justify-content: space-between;
     gap: 0;
 }
 
@@ -283,12 +283,12 @@ header {
 
 .logo-text h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     color: #c62828;
     line-height: 1.2;
     white-space: nowrap;
+    max-width: 200px;
 }
-
 .logo-text span {
     display: none;
 }
@@ -304,7 +304,7 @@ header {
 
 .nav-menu > li > a {
     display: block;
-    padding: 12px 20px;
+    padding: 10px 12px;
     font-weight: 500;
     color: var(--text-dark);
     transition: var(--transition);
