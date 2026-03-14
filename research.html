@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Varad Seeds Research & Development - R&D farm at Tapowan, Bhokhardan, Jalna across 15 acres focused on hybrid seed development." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://varadseeds.com/research.html" />
+    <title>Research & Development | Varad Seeds</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .preloader{position:fixed;top:0;left:0;width:100%;height:100%;background:#fff;display:flex;justify-content:center;align-items:center;z-index:10000;transition:opacity .5s,visibility .5s}
+        .preloader.hidden{opacity:0;visibility:hidden}
+
+        .page-banner {
+            background: linear-gradient(135deg, rgba(27,94,32,0.92), rgba(46,125,50,0.85)),
+                        url('assets/images/site/research-1.jpg') center/cover no-repeat;
+            padding: 100px 0 60px;
+            text-align: center;
+            color: #fff;
+        }
+        .page-banner h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        .page-banner p { font-size: 1.1rem; opacity: 0.9; }
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 15px;
+            font-size: 0.95rem;
+            opacity: 0.85;
+        }
+        .breadcrumb a { color: var(--accent-yellow); }
+        .breadcrumb span { color: #fff; }
+
+        /* STATS BAR */
+        .rd-stats {
+            background: var(--primary-green);
+            padding: 40px 0;
+        }
+        .rd-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+        .rd-stat-item {
+            color: #fff;
+            padding: 10px;
+            border-right: 1px solid rgba(255,255,255,0.2);
+        }
+        .rd-stat-item:last-child { border-right: none; }
+        .rd-stat-item h3 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--accent-yellow);
+            margin-bottom: 5px;
+        }
+        .rd-stat-item p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* MAIN CONTENT */
+        .infra-section {
+            padding: 80px 0;
+            background: var(--bg-cream);
+        }
+        .infra-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+        .infra-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--primary-green);
+            margin-bottom: 20px;
+        }
+        .infra-text h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary-green), var(--accent-orange));
+            border-radius: 2px;
+            margin-top: 10px;
+        }
+        .infra-text p {
+            color: var(--text-light);
+            font-size: 1rem;
+            line-height: 1.9;
+            margin-bottom: 18px;
+        }
+
+        /* LOCATION BADGE */
+        .location-badge {
+            background: #fff;
+            border-radius: 15px;
+            padding: 20px 25px;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--accent-orange);
+        }
+        .location-badge i {
+            font-size: 1.8rem;
+            color: var(--accent-orange);
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+        .location-badge h4 {
+            color: var(--text-dark);
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+        .location-badge p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* IMAGE GRID */
+        .infra-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        .infra-images img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        .infra-images img:first-child {
+            grid-column: span 2;
+            height: 260px;
+        }
+        .infra-images img:hover {
+            transform: scale(1.03);
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* FOCUS AREAS */
+        .focus-areas {
+            padding: 80px 0;
+            background: #fff;
+        }
+        .focus-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        .focus-card {
+            background: var(--bg-cream);
+            border-radius: 20px;
+            padding: 35px 25px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .focus-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary-green), var(--accent-orange));
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+        .focus-card:hover::before { transform: scaleX(1); }
+        .focus-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+        .focus-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+        .focus-icon i {
+            font-size: 1.8rem;
+            color: #fff;
+        }
+        .focus-card h3 {
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+        .focus-card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* MOTTO BANNER */
+        .motto-banner {
+            background: linear-gradient(135deg, var(--dark-green), var(--primary-green));
+            padding: 60px 0;
+            text-align: center;
+            color: #fff;
+        }
+        .motto-banner h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        .motto-banner h2 span {
+            color: var(--accent-yellow);
+        }
+        .motto-banner p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 992px) {
+            .infra-content { grid-template-columns: 1fr; }
+            .infra-images { order: -1; }
+            .rd-stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .focus-grid { grid-template-columns: repeat(2, 1fr); }
+            .page-banner h1 { font-size: 2rem; }
+            .rd-stat-item { border-right: none; }
+        }
+        @media (max-width: 576px) {
+            .focus-grid { grid-template-columns: 1fr; }
+            .rd-stats-grid { grid-template-columns: 1fr; }
+            .motto-banner h2 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader loader-logo">
+            <span class="loader-ring" aria-hidden="true"></span>
+            <img src="assets/images/varadseeds.png" alt="Varad Seeds Logo" class="loader-logo-img">
+        </div>
+    </div>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-left">
+                <span><i class="fas fa-phone-alt"></i> +91 97643 50436, 88068 92783</span>
+                <span><i class="fas fa-envelope"></i> info@varadseeds.com</span>
+                <span><i class="fas fa-clock"></i> Mon - Sat: 9:00 AM - 6:00 PM</span>
+            </div>
+            <div class="top-bar-right">
+                <a href="https://www.facebook.com/VARADSEEDS" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/krushnamalusare2535?igsh=emlrZ2UzamZqZmVw&utm_source=qr" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@varadseedsandagritech7779" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-main">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">
+                        <img src="assets/images/varad-agro-tech.png" alt="Varad Seeds and Agri Tech Logo">
+                    </div>
+                    <div class="logo-text">
+                        <h1>Varad Seeds & Agri Tech</h1>
+                    </div>
+                </a>
+                <nav>
+                    <ul class="nav-menu" id="navMenu">
+                        <li><a href="index.html">Home</a></li>
+                        <li>
+                            <a href="index.html#about">About Us <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown">
+                                <li><a href="index.html#about"><i class="fas fa-building"></i> Company Profile</a></li>
+                                <li><a href="index.html#about"><i class="fas fa-bullseye"></i> Mission & Vision</a></li>
+                                <li><a href="index.html#team"><i class="fas fa-users"></i> Our Team</a></li>
+                                <li><a href="index.html#about"><i class="fas fa-certificate"></i> Certifications</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="products.html">Products <i class="fas fa-chevron-down"></i></a>
+                            <div class="mega-menu">
+                                <div class="mega-menu-grid">
+                                    <div class="mega-menu-col">
+                                        <h4>🌾 Field Crops</h4>
+                                        <ul>
+                                            <li><a href="products.html"><i class="fas fa-angle-right"></i> Cotton Seeds</a></li>
+                                            <li><a href="products.html"><i class="fas fa-angle-right"></i> Soybean Seeds</a></li>
+                                            <li><a href="products.html"><i class="fas fa-angle-right"></i> Maize Seeds</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="mega-menu-col">
+                                        <h4>🥬 Vegetables</h4>
+                                        <ul>
+                                            <li><a href="products.html"><i class="fas fa-angle-right"></i> Tomato Seeds</a></li>
+                                            <li><a href="products.html"><i class="fas fa-angle-right"></i> Chilli Seeds</a></li>
+                                            <li><a href="products.html"><i class="fas fa-angle-right"></i> Brinjal Seeds</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="mega-menu-col">
+                                        <h4>🌻 Oil Seeds</h4>
+                                        <ul>
+                                            <li><a href="products.html"><i class="fas fa-angle-right"></i> Sunflower Seeds</a></li>
+                                            <li><a href="products.html"><i class="fas fa-angle-right"></i> Groundnut Seeds</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="mega-menu-col">
+                                        <h4>🌿 Pulses</h4>
+                                        <ul>
+                                            <li><a href="products.html"><i class="fas fa-angle-right"></i> Pigeon Pea Seeds</a></li>
+                                            <li><a href="products.html"><i class="fas fa-angle-right"></i> Mung Bean Seeds</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li><a href="index.html#gallery">Gallery</a></li>
+                        <li>
+                            <a href="#" class="active">Infrastructure <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown">
+                                <li><a href="processing.html"><i class="fas fa-industry"></i> Processing</a></li>
+                                <li><a href="production.html"><i class="fas fa-cogs"></i> Production</a></li>
+                                <li><a href="quality-assurance.html"><i class="fas fa-shield-alt"></i> Quality Assurance</a></li>
+                                <li><a href="research.html"><i class="fas fa-flask"></i> Research & Development</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Resources <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown">
+                                <li><a href="#"><i class="fas fa-book"></i> Farmer's Guide</a></li>
+                                <li><a href="#"><i class="fas fa-video"></i> Video Tutorials</a></li>
+                                <li><a href="index.html#brochure"><i class="fas fa-file-pdf"></i> Product Catalog</a></li>
+                                <li><a href="#"><i class="fas fa-question-circle"></i> FAQs</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                        <li><a href="index.html#brochure">Brochure</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <div class="mobile-toggle" id="mobileToggle">
+                        <span></span><span></span><span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- PAGE BANNER -->
+    <section class="page-banner">
+        <div class="container">
+            <h1>Research & Development</h1>
+            <p>Innovation in Seeds — Driving the Future of Indian Agriculture</p>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <span>Infrastructure</span>
+                <span>/</span>
+                <span>Research & Development</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS BAR -->
+    <section class="rd-stats">
+        <div class="container">
+            <div class="rd-stats-grid">
+                <div class="rd-stat-item">
+                    <h3>15+</h3>
+                    <p>Acres R&D Farm</p>
+                </div>
+                <div class="rd-stat-item">
+                    <h3>2008</h3>
+                    <p>Established Since</p>
+                </div>
+                <div class="rd-stat-item">
+                    <h3>3+</h3>
+                    <p>Trial Centres</p>
+                </div>
+                <div class="rd-stat-item">
+                    <h3>Pan India</h3>
+                    <p>Research Network</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section class="infra-section">
+        <div class="container">
+            <div class="infra-content">
+
+                <!-- TEXT -->
+                <div class="infra-text">
+                    <h2>Our R&D Program</h2>
+                    <p>A Research and Development farm is essential to test and identify new seed varieties. Varad Seeds & Agritech has its own R&D center farm located at Tapowan, Tq. Bhokhardan, Dist. Jalna, Maharashtra, spread across 15 acres.</p>
+                    <p>Another research trial centre is operational in Maharashtra, Telangana, and pan India. This R&D farm supports the development, testing, and production of new hybrid seeds. This R&D station was established in June 2008.</p>
+                    <p>We are primarily focused on higher yield, disease resistance, and nutrient-based breeding programs in vegetable seeds. Focused on seeds quality assessment with advanced techniques.</p>
+                    <p>Varad Seeds has highly educated and experienced staff in their R&D who develop modern technologies and bring external expertise to our company. This will take the company a step forward and strengthen the company's motto <strong>'Every Seed Matters'</strong> through experimental testing under R&D.</p>
+
+                    <div class="location-badge">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Main R&D Farm</h4>
+                            <p>Tapowan, Tq. Bhokhardan, Dist. Jalna, Maharashtra<br>Spread across <strong>15 Acres</strong> — Established June 2008</p>
+                        </div>
+                    </div>
+
+                    <div class="location-badge">
+                        <i class="fas fa-flask"></i>
+                        <div>
+                            <h4>Trial Centres</h4>
+                            <p>Maharashtra, Telangana & Pan India research network for extensive testing</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IMAGES -->
+                <div class="infra-images">
+                    <img src="assets/images/site/research-1.jpg" alt="R&D Farm" loading="lazy">
+                    <img src="assets/images/site/research-2.jpg" alt="Research Lab" loading="lazy">
+                   
+                    <img src="assets/images/site/research-4.jpg" alt="Hybrid Development" loading="lazy">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOCUS AREAS -->
+    <section class="focus-areas">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our R&D Focus Areas</h2>
+                <p>Innovation driven by science for sustainable agriculture</p>
+            </div>
+            <div class="focus-grid">
+                <div class="focus-card">
+                    <div class="focus-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Higher Yield</h3>
+                    <p>Breeding programs focused on maximizing crop yield through advanced genetics and field testing.</p>
+                </div>
+                <div class="focus-card">
+                    <div class="focus-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Disease Resistance</h3>
+                    <p>Developing seeds that are resistant to diseases for healthier crops and reduced losses.</p>
+                </div>
+                <div class="focus-card">
+                    <div class="focus-icon"><i class="fas fa-leaf"></i></div>
+                    <h3>Nutrient-Based Breeding</h3>
+                    <p>Focused on improving nutritional content and seed quality through scientific breeding methods.</p>
+                </div>
+                <div class="focus-card">
+                    <div class="focus-icon"><i class="fas fa-sun"></i></div>
+                    <h3>Climate Tolerance</h3>
+                    <p>Producing seeds that can grow in harsh environmental conditions for climate resilience.</p>
+                </div>
+                <div class="focus-card">
+                    <div class="focus-icon"><i class="fas fa-recycle"></i></div>
+                    <h3>Sustainability</h3>
+                    <p>Observing environmentally friendly practices and reducing environmental impacts in all processes.</p>
+                </div>
+                <div class="focus-card">
+                    <div class="focus-icon"><i class="fas fa-dna"></i></div>
+                    <h3>Genetics Innovation</h3>
+                    <p>In pursuit of possibilities in genetics with the most innovative research program in Indian agriculture.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MOTTO BANNER -->
+    <section class="motto-banner">
+        <div class="container">
+            <h2>Varad Seeds — <span>'Every Seed Matters'</span></h2>
+            <p>One of the fastest growing seed companies in India, driven by innovation, research, and a commitment to farmers across the nation.</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a href="index.html" class="logo">
+                            <div class="logo-icon">
+                                <img src="assets/images/varad-agro-tech.png" alt="Varad Seeds Logo">
+                            </div>
+                            <div class="logo-text">
+                                <h1>Varad Seeds & Agri Tech</h1>
+                            </div>
+                        </a>
+                        <p>Varad Seeds is committed to empowering farmers with premium quality seeds that ensure higher yields and sustainable agriculture.</p>
+                        <div class="footer-social">
+                            <a href="https://www.facebook.com/VARADSEEDS" target="_blank"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/krushnamalusare2535?igsh=emlrZ2UzamZqZmVw&utm_source=qr" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.youtube.com/@varadseedsandagritech7779" target="_blank"><i class="fab fa-youtube"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-links">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="index.html#about"><i class="fas fa-angle-right"></i> About Us</a></li>
+                            <li><a href="products.html"><i class="fas fa-angle-right"></i> Our Products</a></li>
+                            <li><a href="index.html#contact"><i class="fas fa-angle-right"></i> Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links">
+                        <h4>Infrastructure</h4>
+                        <ul>
+                            <li><a href="processing.html"><i class="fas fa-angle-right"></i> Processing</a></li>
+                            <li><a href="production.html"><i class="fas fa-angle-right"></i> Production</a></li>
+                            <li><a href="quality-assurance.html"><i class="fas fa-angle-right"></i> Quality Assurance</a></li>
+                            <li><a href="research.html"><i class="fas fa-angle-right"></i> Research & Development</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-contact">
+                        <h4>Contact Info</h4>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>Shop No.91, Block No.4, New Seeds Market, New Mondha<br>Jalna, Maharashtra - 431203</p>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <p>+91 97643 50436<br>+91 88068 92783</p>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <p>info@varadseeds.com<br>sales@varadseeds.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Varad Seeds. All Rights Reserved. Designed with ❤️ for Indian Farmers</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
+    <a href="https://wa.me/917020051513" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="js/common.js"></script>
+</body>
+</html>
