@@ -280,7 +280,8 @@ header {
 
 .logo-text h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
+    white-space: nowrap;
     color: #c62828;
     line-height: 1.1;
 }
