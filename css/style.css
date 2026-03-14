@@ -1,6 +1,7 @@
 /* ============================================================
    VARAD SEEDS — Main Stylesheet (style.css)
    Shared styles loaded on ALL pages
+   FIXED: Logo flush-left, nav flush-right, PNG whitespace handled
    ============================================================ */
 
 /* ==================== CSS RESET & VARIABLES ==================== */
@@ -191,7 +192,7 @@ img {
 .top-bar {
     background: var(--dark-green);
     color: var(--white);
-      padding: 10px 0;
+    padding: 10px 0;
     font-size: 0.9rem;
     border-bottom: 3px solid var(--accent-yellow);
 }
@@ -239,7 +240,10 @@ img {
     transform: translateY(-2px);
 }
 
-/* ==================== HEADER & NAVIGATION ==================== */
+/* ============================================================
+   HEADER & NAVIGATION — FIXED LAYOUT
+   Logo: flush LEFT   |   Nav: flush RIGHT
+   ============================================================ */
 header {
     background: var(--white);
     box-shadow: var(--shadow);
@@ -251,39 +255,49 @@ header {
 .header-main {
     display: flex;
     align-items: center;
-    padding: 8px 0;
-    justify-content: flex-start;
-    gap: 0;
+    justify-content: space-between;
+    padding: 5px 0;
 }
 
+/* --- LOGO (left side) --- */
 .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 6px;
     flex-shrink: 0;
-    margin-right: 20px;
 }
 
 .logo-icon {
-    width: auto;
-    height: auto;
-    background: transparent;
-    border-radius: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    background: transparent;
+    border-radius: 0;
+    overflow: hidden;
+    /* 
+       KEY FIX: Use negative margin to eat the transparent 
+       whitespace that's baked into the PNG file.
+       Adjust these values if the logo still has gaps.
+       -12px left pulls it closer to the container edge.
+       -8px top/bottom removes vertical padding in PNG.
+    */
+    margin-left: -12px;
+    margin-top: -8px;
+    margin-bottom: -8px;
+    margin-right: -5px;
 }
 
 .logo-icon img {
-    height: 55px;
+    height: 65px;
     width: auto;
-    max-width: 120px;
+    max-width: 130px;
     object-fit: contain;
+    display: block;
 }
 
 .logo-text h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: #c62828;
     line-height: 1.2;
     white-space: nowrap;
@@ -292,10 +306,13 @@ header {
 .logo-text span {
     display: none;
 }
+
+/* --- NAV MENU (right side) --- */
 .nav-menu {
     display: flex;
-    gap: 2px;
+    gap: 0;
     margin-left: auto;
+    align-items: center;
 }
 
 .nav-menu > li {
@@ -304,11 +321,17 @@ header {
 
 .nav-menu > li > a {
     display: block;
-    padding: 12px 20px;
+    padding: 12px 14px;
     font-weight: 500;
     color: var(--text-dark);
     transition: var(--transition);
     border-radius: 5px;
+    font-size: 0.95rem;
+    white-space: nowrap;
+}
+
+.nav-menu > li:last-child > a {
+    padding-right: 0;
 }
 
 .nav-menu > li > a:hover,
@@ -991,6 +1014,13 @@ footer {
     margin-bottom: 20px;
 }
 
+.footer-brand .logo-icon {
+    margin-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-right: 0;
+}
+
 .footer-brand .logo-text h1 {
     color: var(--white);
 }
@@ -1254,10 +1284,28 @@ footer {
 /* ==================== RESPONSIVE — SHARED ==================== */
 @media (max-width: 1200px) {
     .mega-menu { width: 95%; }
+
+    .nav-menu > li > a {
+        padding: 12px 10px;
+        font-size: 0.88rem;
+    }
 }
 
 @media (max-width: 992px) {
-    .header-main { flex-wrap: wrap; }
+    .header-main {
+        flex-wrap: wrap;
+    }
+
+    .logo {
+        margin-right: auto;
+    }
+
+    .logo-icon {
+        margin-left: 0;
+        margin-top: -5px;
+        margin-bottom: -5px;
+        margin-right: 0;
+    }
 
     .nav-menu {
         display: none;
@@ -1269,6 +1317,7 @@ footer {
         flex-direction: column;
         padding: 20px;
         box-shadow: var(--shadow);
+        margin-left: 0;
     }
 
     .nav-menu.active { display: flex; }
@@ -1276,6 +1325,7 @@ footer {
     .nav-menu > li > a {
         padding: 15px;
         border-bottom: 1px solid #eee;
+        font-size: 1rem;
     }
 
     .dropdown,
@@ -1351,6 +1401,14 @@ footer {
         flex-direction: column;
         text-align: center;
     }
+
+    .logo-icon img {
+        height: 45px;
+    }
+
+    .logo-text h1 {
+        font-size: 0.85rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1363,5 +1421,12 @@ footer {
 
     .contact-info,
     .contact-form { padding: 30px; }
-}
 
+    .logo-icon img {
+        height: 40px;
+    }
+
+    .logo-text h1 {
+        font-size: 0.8rem;
+    }
+}
