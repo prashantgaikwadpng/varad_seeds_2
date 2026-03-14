@@ -257,8 +257,9 @@ header {
 .logo {
     display: flex;
     align-items: center;
-    gap: 15px;
-    margin-right: 40px;
+    gap: 10px;
+    margin-right: 25px;
+    flex-shrink: 0;
 }
 
 .logo-icon {
@@ -280,7 +281,7 @@ header {
 
 .logo-text h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
+    font-size: 1rem;
     white-space: nowrap;
     color: #c62828;
     line-height: 1.1;
@@ -295,7 +296,8 @@ header {
 
 .nav-menu {
     display: flex;
-    gap: 5px;
+    gap: 2px;
+    flex: 1;
 }
 
 .nav-menu > li {
