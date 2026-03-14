@@ -258,10 +258,8 @@ header {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-right: 25px;
     flex-shrink: 0;
 }
-
 .logo-icon {
     width: auto;
     height: auto;
@@ -297,7 +295,7 @@ header {
 .nav-menu {
     display: flex;
     gap: 2px;
-    flex: 1;
+    margin-left: auto;
 }
 
 .nav-menu > li {
