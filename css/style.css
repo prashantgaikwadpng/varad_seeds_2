@@ -261,7 +261,9 @@ header {
     align-items: center;
     gap: 10px;
     flex-shrink: 0;
+    margin-right: 20px;
 }
+
 .logo-icon {
     width: auto;
     height: auto;
