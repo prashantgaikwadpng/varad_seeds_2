@@ -191,8 +191,9 @@ img {
 .top-bar {
     background: var(--dark-green);
     color: var(--white);
-    padding: 10px 0;
+      padding: 10px 0;
     font-size: 0.9rem;
+    border-bottom: 3px solid var(--accent-yellow);
 }
 
 .top-bar .container {
@@ -250,7 +251,7 @@ header {
 .header-main {
     display: flex;
     align-items: center;
-    padding: 15px 0;
+   padding: 8px 0;
 }
 
 .logo {
@@ -271,15 +272,15 @@ header {
 }
 
 .logo-icon img {
-    height: 80px;
+    height: 55px;
     width: auto;
-    max-width: 160px;
+    max-width: 120px;
     object-fit: contain;
 }
 
 .logo-text h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
+    font-size: 1.3rem;
     color: #c62828;
     line-height: 1.1;
 }
