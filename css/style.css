@@ -252,15 +252,16 @@ header {
     display: flex;
     align-items: center;
     padding: 8px 0;
-    justify-content: space-between;
-    gap: 20px;
+    justify-content: flex-start;
+    gap: 0;
 }
 
 .logo {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     flex-shrink: 0;
+    margin-right: 20px;
 }
 
 .logo-icon {
@@ -282,22 +283,19 @@ header {
 
 .logo-text h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
+    font-size: 0.95rem;
     color: #c62828;
     line-height: 1.2;
     white-space: nowrap;
 }
 
 .logo-text span {
-    display: block;
-    font-size: 0.75rem;
-    color: var(--text-light);
+    display: none;
 }
 .nav-menu {
     display: flex;
-    gap: 5px;
-    flex: 1;
-    justify-content: center;
+    gap: 2px;
+    margin-left: auto;
 }
 
 .nav-menu > li {
