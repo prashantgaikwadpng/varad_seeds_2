@@ -75,6 +75,11 @@ img {
     position: relative;
     display: inline-block;
 }
+body{
+margin:0;
+padding:0;
+overflow-x:hidden;
+}
 
 .section-title h2::after {
     content: '';
