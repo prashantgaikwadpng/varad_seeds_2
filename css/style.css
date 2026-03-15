@@ -1375,3 +1375,9 @@ footer {
     align-items:center;
     justify-content:flex-start;
 }
+
+.nav-menu{
+margin-left:auto;
+display:flex;
+gap:20px;
+}
