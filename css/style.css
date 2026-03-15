@@ -35,8 +35,6 @@ body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     color: var(--text-dark);
-      margin: 0;
-    padding: 0;
     overflow-x: hidden;
 }
 
@@ -55,12 +53,11 @@ img {
 }
 
 .container {
-    max-width: 1320px;
-    width: 100%;
+    max-width: 1200px;
     margin: 0 auto;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 0 20px;
 }
+
 /* ==================== SECTION TITLE (Reused everywhere) ==================== */
 .section-title {
     text-align: center;
@@ -74,11 +71,6 @@ img {
     margin-bottom: 15px;
     position: relative;
     display: inline-block;
-}
-body{
-margin:0;
-padding:0;
-overflow-x:hidden;
 }
 
 .section-title h2::after {
@@ -1372,3 +1364,4 @@ footer {
     .contact-info,
     .contact-form { padding: 30px; }
 }
+
