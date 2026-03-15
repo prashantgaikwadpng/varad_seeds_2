@@ -1365,19 +1365,3 @@ footer {
     .contact-form { padding: 30px; }
 }
 
- 
-/* HEADER WIDTH FIX */
-.header-main{
-    width:100%;
-    padding-left:40px;
-    padding-right:0;
-    display:flex;
-    align-items:center;
-    justify-content:flex-start;
-}
-
-.nav-menu{
-margin-left:auto;
-display:flex;
-gap:20px;
-}
