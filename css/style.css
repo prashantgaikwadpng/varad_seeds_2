@@ -1366,3 +1366,11 @@ footer {
 }
 
  
+/* HEADER WIDTH FIX */
+.header-main{
+    width:100%;
+    padding:0 40px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
