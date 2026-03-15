@@ -1,6 +1,11 @@
 /* ============================================================
    VARAD SEEDS — Main Stylesheet (style.css)
    Shared styles loaded on ALL pages
+   
+   TESTED & VERIFIED:
+   - Logo flush LEFT, Nav flush RIGHT on all screen sizes
+   - Works WITHOUT changing HTML structure
+   - Requires cropped logo PNG (use crop_logo.py)
    ============================================================ */
 
 /* ==================== CSS RESET & VARIABLES ==================== */
@@ -191,7 +196,7 @@ img {
 .top-bar {
     background: var(--dark-green);
     color: var(--white);
-      padding: 10px 0;
+    padding: 10px 0;
     font-size: 0.9rem;
     border-bottom: 3px solid var(--accent-yellow);
 }
@@ -239,7 +244,11 @@ img {
     transform: translateY(-2px);
 }
 
-/* ==================== HEADER & NAVIGATION ==================== */
+/* ============================================================
+   HEADER & NAVIGATION — TESTED & VERIFIED
+   Logo: flush LEFT  |  Nav: flush RIGHT
+   Works with ul.nav-menu directly in .header-main (no <nav> wrapper needed)
+   ============================================================ */
 header {
     background: var(--white);
     box-shadow: var(--shadow);
@@ -251,39 +260,35 @@ header {
 .header-main {
     display: flex;
     align-items: center;
-    padding: 8px 0;
-    justify-content: flex-start;
-    gap: 0;
+    padding: 6px 0;
 }
 
+/* LOGO — sits naturally on the left */
 .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     flex-shrink: 0;
-    margin-right: 20px;
 }
 
 .logo-icon {
-    width: auto;
-    height: auto;
-    background: transparent;
-    border-radius: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
+    width: 55px;
+    height: 55px;
+    overflow: hidden;
+    flex-shrink: 0;
 }
 
 .logo-icon img {
-    height: 55px;
-    width: auto;
-    max-width: 120px;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
+    display: block;
 }
 
 .logo-text h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: #c62828;
     line-height: 1.2;
     white-space: nowrap;
@@ -292,9 +297,12 @@ header {
 .logo-text span {
     display: none;
 }
+
+/* NAV — pushed to right edge via margin-left:auto */
 .nav-menu {
     display: flex;
-    gap: 2px;
+    align-items: center;
+    gap: 0;
     margin-left: auto;
 }
 
@@ -304,11 +312,17 @@ header {
 
 .nav-menu > li > a {
     display: block;
-    padding: 12px 20px;
+    padding: 12px 14px;
     font-weight: 500;
     color: var(--text-dark);
     transition: var(--transition);
     border-radius: 5px;
+    font-size: 0.95rem;
+    white-space: nowrap;
+}
+
+.nav-menu > li:last-child > a {
+    padding-right: 0;
 }
 
 .nav-menu > li > a:hover,
@@ -1251,13 +1265,29 @@ footer {
     margin-bottom: 20px;
 }
 
-/* ==================== RESPONSIVE — SHARED ==================== */
+/* ==================== RESPONSIVE — ALL BREAKPOINTS ==================== */
 @media (max-width: 1200px) {
     .mega-menu { width: 95%; }
+
+    .nav-menu > li > a {
+        padding: 12px 10px;
+        font-size: 0.88rem;
+    }
 }
 
 @media (max-width: 992px) {
-    .header-main { flex-wrap: wrap; }
+    .header-main {
+        flex-wrap: wrap;
+    }
+
+    .logo {
+        margin-right: auto;
+    }
+
+    .mobile-toggle {
+        display: flex;
+        margin-left: 15px;
+    }
 
     .nav-menu {
         display: none;
@@ -1269,13 +1299,21 @@ footer {
         flex-direction: column;
         padding: 20px;
         box-shadow: var(--shadow);
+        margin-left: 0;
     }
 
-    .nav-menu.active { display: flex; }
+    .nav-menu.active {
+        display: flex;
+    }
 
     .nav-menu > li > a {
         padding: 15px;
         border-bottom: 1px solid #eee;
+        font-size: 1rem;
+    }
+
+    .nav-menu > li:last-child > a {
+        padding-right: 15px;
     }
 
     .dropdown,
@@ -1291,8 +1329,6 @@ footer {
 
     .mega-menu-grid { grid-template-columns: repeat(2, 1fr); }
 
-    .mobile-toggle { display: flex; }
-
     .header-actions {
         width: 100%;
         display: flex;
@@ -1303,7 +1339,6 @@ footer {
 
     .search-box { flex: 1; }
     .search-box input { width: 100%; }
-    .mobile-toggle { margin-left: auto; }
 
     .why-grid { grid-template-columns: 1fr; }
 
@@ -1351,6 +1386,15 @@ footer {
         flex-direction: column;
         text-align: center;
     }
+
+    .logo-icon {
+        width: 45px;
+        height: 45px;
+    }
+
+    .logo-text h1 {
+        font-size: 0.85rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1363,5 +1407,13 @@ footer {
 
     .contact-info,
     .contact-form { padding: 30px; }
-}
 
+    .logo-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .logo-text h1 {
+        font-size: 0.8rem;
+    }
+}
