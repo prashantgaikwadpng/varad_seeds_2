@@ -247,7 +247,11 @@ header {
     top: 0;
     z-index: 1000;
 }
-
+/* FIX HEADER SIDE SPACING */
+header .container {
+    max-width: 100%;
+    padding: 0 40px;
+}
 .header-main {
     display: flex;
     align-items: center;
