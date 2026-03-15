@@ -294,8 +294,8 @@ header {
 }
 .nav-menu {
     display: flex;
-    gap: 15px;
-    margin-left: 40px;
+    gap: 2px;
+    margin-left: auto;
 }
 
 .nav-menu > li {
@@ -1364,4 +1364,3 @@ footer {
     .contact-info,
     .contact-form { padding: 30px; }
 }
-
