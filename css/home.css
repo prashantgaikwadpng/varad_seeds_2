@@ -39,7 +39,10 @@
     gap: 50px;
     align-items: center;
 }
-
+.hero .container{
+    max-width: 1400px;
+    width: 95%;
+}
 .hero-text {
     color: var(--white);
 }
