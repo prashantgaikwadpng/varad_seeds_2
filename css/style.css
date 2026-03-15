@@ -56,7 +56,7 @@ img {
     max-width: 1320px;
     width: 100%;
     margin: 0 auto;
-    padding: 0 10px;
+    padding: 0;
 }
 /* ==================== SECTION TITLE (Reused everywhere) ==================== */
 .section-title {
